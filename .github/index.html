@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CVA Trigonometry Master</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>CVA Trigonometry Master</h1>
+      <p>Focused only on sine, cosine, tangent, the unit circle, quadrant signs, reference angles, boundary angles, common mistakes, and solving trig equations on 0° ≤ θ ≤ 360°.</p>
+    </header>
+    <section class="mastery-score-panel" aria-labelledby="mastery-score-title">
+      <div>
+        <span class="mastery-tag">Mastery Score</span>
+        <h2 id="mastery-score-title">0%</h2>
+      </div>
+      <div class="mastery-score-grid" aria-label="Mastery tracking summary">
+        <span><strong id="trackCorrectSteps">0</strong> correct steps</span>
+        <span><strong id="trackWrongAttempts">0</strong> wrong attempts</span>
+        <span><strong id="trackHintsUsed">0</strong> hints used</span>
+        <span><strong id="trackCompletedExercises">0</strong> completed exercises</span>
+        <span><strong id="trackTransferSuccess">0</strong> transfer successes</span>
+        <span><strong id="trackRepeatedMistakes">None</strong> repeated mistake</span>
+      </div>
+    </section>
+    <nav class="tabs" aria-label="Main lessons">
+      <button class="tab-btn active" type="button" data-tab="learn">Learn Trig Functions</button>
+      <button class="tab-btn" type="button" data-tab="signs">Unit Circle &amp; Signs</button>
+      <button class="tab-btn" type="button" data-tab="solve">Solve Trig Equations</button>
+      <button class="tab-btn" type="button" data-tab="practice">Guided Practice</button>
+      <button class="tab-btn" type="button" data-tab="clinic">Mistake Clinic</button>
+      <button class="tab-btn" type="button" data-tab="challenge">Challenge Mode</button>
+    </nav>
+
+    <main>
+      <section class="tab-panel active" id="tab-learn" data-lesson="learn" aria-labelledby="learn-title">
+        <div class="card lesson-card">
+          <div class="lesson-hero section section-indigo">
+            <div>
+              <span class="mastery-tag">Lesson 1</span>
+              <h2 id="learn-title" class="text-indigo-900">Learn Trig Functions</h2>
+              <p>Build sine, cosine, and tangent from concrete movement, visual graphs, and abstract notation.</p>
+            </div>
+            <canvas id="learnHeroCanvas" width="260" height="180" aria-label="Animated sine cosine tangent preview"></canvas>
+          </div>
+          <div id="learnStructure"></div>
+          <section class="section section-yellow"><h3 class="text-yellow-900">CVA Flow: Learn Trig Functions</h3><div class="cva-flow" id="learnCvaFlow"></div></section>
+          <div id="learnFocus"></div>
+          <div id="learnThinking"></div>
+          <section class="section section-slate" aria-labelledby="learn-visual-title">
+            <h3 id="learn-visual-title">Visual: Function Graphs and Moving Angle</h3>
+            <div class="info-card mb-2">
+              <h4 class="center-title">Sine, Cosine, and Tangent Together</h4>
+              <div class="grid-3">
+                <div class="svg-center"><h4 class="text-green">Sine</h4><canvas id="sinCanvas" width="260" height="180"></canvas><div id="sinBadge" class="badge badge-green mt-1"></div></div>
+                <div class="svg-center"><h4 class="text-blue">Cosine</h4><canvas id="cosCanvas" width="260" height="180"></canvas><div id="cosBadge" class="badge badge-green mt-1"></div></div>
+                <div class="svg-center"><h4 class="text-orange">Tangent</h4><canvas id="tanCanvas" width="260" height="180"></canvas><div id="tanBadge" class="badge badge-green mt-1"></div></div>
+              </div>
+            </div>
+            <div class="grid-2">
+              <div class="svg-center info-card"><h4>Unit Circle View</h4><canvas id="unitCircleCanvas" width="280" height="280"></canvas></div>
+              <div class="info-card control-stack">
+                <div><label class="label" for="angleSlider" id="angleLabel"></label><input type="range" id="angleSlider" class="range-blue" min="0" max="360" value="45"></div>
+                <div class="btn-group" id="anglePresets"></div>
+                <div class="dark-box"><h4>CVA Connection</h4><ol><li>Concrete: the point rotates around the circle.</li><li>Visual: graph heights change as θ changes.</li><li>Abstract: sin(θ), cos(θ), and tan(θ) describe those values.</li></ol></div>
+              </div>
+            </div>
+          </section>
+          <div id="learnWorkedExample"></div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-signs" data-lesson="signs" aria-labelledby="signs-title">
+        <div class="card lesson-card">
+          <div class="lesson-hero section section-indigo">
+            <div>
+              <span class="mastery-tag">Lesson 2</span>
+              <h2 id="signs-title" class="text-indigo-900">Unit Circle &amp; Signs</h2>
+              <p>Use quadrants, boundary angles, and ASTC to decide signs of sin, cos, and tan.</p>
+            </div>
+            <canvas id="signHeroCanvas" width="260" height="180" aria-label="Animated unit circle preview"></canvas>
+          </div>
+          <div id="signsStructure"></div>
+          <div id="signsThinking"></div>
+          <div id="signsBoundary"></div>
+          <section class="section section-yellow" aria-labelledby="sign-solver-title">
+            <h3 id="sign-solver-title" class="text-yellow-900">CVA Sign Solver</h3>
+            <div class="cva-flow" id="signCvaFlow"></div>
+            <p class="small-text mb-2">Use the unit circle position, then move from quadrant to signs: sin from y, cos from x, tan from y/x.</p>
+            <div class="grid-2">
+              <div class="info-card">
+                <span class="mastery-tag">Concrete → Visual → Abstract</span>
+                <label class="label" for="signAngleInput">Angle (degrees)</label>
+                <input type="number" id="signAngleInput" class="inp-yellow mb-2" placeholder="e.g., 210">
+                <button class="btn btn-yellow full-width" id="signSolveBtn" type="button" disabled>Show Solution</button>
+                <div id="signFormulaBox" class="formula-box hidden"><strong>Abstract Rule</strong><span>ASTC: All, Sin, Tan, Cos by Quadrant</span></div>
+              </div>
+              <div class="info-card">
+                <div class="step-box" id="signStep0"><strong>1. Identify Quadrant</strong><p></p></div>
+                <div class="step-box" id="signStep1"><strong>2. Read the Visual</strong><p></p></div>
+                <div class="step-box" id="signStep2"><strong>3. Apply ASTC and Determine Signs</strong><p></p></div>
+                <div class="final-box" id="signFinalBox"><strong>Final Answer</strong><p></p></div>
+                <p class="placeholder" id="signPlaceholder">Enter an angle and click Show Solution.</p>
+              </div>
+            </div>
+          </section>
+          <div id="signWorkedExample"></div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-solve" data-lesson="solve" aria-labelledby="solve-title">
+        <div class="card lesson-card">
+          <div class="lesson-hero section section-indigo">
+            <div>
+              <span class="mastery-tag">Lesson 3</span>
+              <h2 id="solve-title" class="text-indigo-900">Solve Trig Equations</h2>
+              <p>Find all solutions to sine, cosine, and tangent equations on 0° ≤ θ ≤ 360°.</p>
+            </div>
+            <canvas id="equationHeroCanvas" width="260" height="180" aria-label="Animated trig equation preview"></canvas>
+          </div>
+          <div id="solveStructure"></div>
+          <div id="solveThinking"></div>
+          <div id="solveReference"></div>
+          <div id="solveInfo"></div>
+          <section class="section section-yellow" aria-labelledby="equation-solver-title">
+            <h3 id="equation-solver-title" class="text-yellow-900">5-Step Mastery Solver</h3>
+            <div class="cva-flow" id="equationCvaFlow"></div>
+            <p class="small-text mb-2"><strong>Problem:</strong> Solve sin(θ) = 0.5 for 0° ≤ θ ≤ 360°.</p>
+            <div id="eqMasteryProgress"></div>
+            <div class="mastery-steps" id="eqMasterySteps">
+              <div class="mastery-card mb-2" id="eqMStep1" data-step="1">
+                <div class="step-badge-row"><span class="mastery-tag" id="eqMTag1">Step 1</span><span class="thinking-badge thinking-badge-1">Level 1: Intuition & Basic Logic</span></div>
+                <h4>Identify the trig function.</h4>
+                <p class="equation-line"><input id="eqMInput1" class="inline-eq-input" type="text" aria-label="trig function">(θ) = 0.5</p>
+                <div class="hint-row" id="eqMHints1"></div>
+                <button class="btn btn-yellow" type="button" id="eqMCheck1">Check Step 1</button>
+                <div class="mastery-step-feedback hidden" id="eqMFeedback1"></div>
+              </div>
+              <div class="mastery-card locked mb-2" id="eqMStep2" data-step="2">
+                <div class="step-badge-row"><span class="mastery-tag" id="eqMTag2">Step 2</span><span class="thinking-badge thinking-badge-3">Level 3: Abstraction & Generalization</span></div>
+                <h4>Find the reference angle.</h4>
+                <div class="equation-stack"><p class="equation-line">θ<sub>ref</sub> = sin⁻¹(<input id="eqMInput2a" class="inline-eq-input" type="text" aria-label="inverse sine input value" disabled>) =</p><p class="equation-line"><input id="eqMInput2b" class="inline-eq-input" type="text" aria-label="reference angle" disabled>°</p></div>
+                <div class="hint-row" id="eqMHints2"></div>
+                <button class="btn btn-yellow" type="button" id="eqMCheck2" disabled>Check Step 2</button>
+                <div class="mastery-step-feedback hidden" id="eqMFeedback2"></div>
+              </div>
+              <div class="mastery-card locked mb-2" id="eqMStep3" data-step="3">
+                <div class="step-badge-row"><span class="mastery-tag" id="eqMTag3">Step 3</span><span class="thinking-badge thinking-badge-2">Level 2: Pattern & Visual Structure</span></div>
+                <h4>Identify correct quadrants.</h4>
+                <p class="equation-line">sin(θ) is positive in Quadrants <input id="eqMInput3a" class="inline-eq-input" type="text" aria-label="first quadrant" disabled> and <input id="eqMInput3b" class="inline-eq-input" type="text" aria-label="second quadrant" disabled>.</p>
+                <div class="hint-row" id="eqMHints3"></div>
+                <button class="btn btn-yellow" type="button" id="eqMCheck3" disabled>Check Step 3</button>
+                <div class="mastery-step-feedback hidden" id="eqMFeedback3"></div>
+              </div>
+              <div class="mastery-card locked mb-2" id="eqMStep4" data-step="4">
+                <div class="step-badge-row"><span class="mastery-tag" id="eqMTag4">Step 4</span><span class="thinking-badge thinking-badge-4">Level 4: Application & Challenge</span></div>
+                <h4>Calculate both solutions.</h4>
+                <div class="equation-stack"><p class="equation-line"><strong>Quadrant I:</strong></p><p class="equation-line">θ₁ = <input id="eqMInput4a" class="inline-eq-input" type="text" aria-label="first solution" disabled>°</p><p class="equation-line"><strong>Quadrant II:</strong></p><p class="equation-line">θ₂ = 180° − <input id="eqMInput4b" class="inline-eq-input" type="text" aria-label="reference angle used for second solution" disabled>° = <input id="eqMInput4c" class="inline-eq-input" type="text" aria-label="second solution" disabled>°</p></div>
+                <div class="hint-row" id="eqMHints4"></div>
+                <button class="btn btn-yellow" type="button" id="eqMCheck4" disabled>Check Step 4</button>
+                <div class="mastery-step-feedback hidden" id="eqMFeedback4"></div>
+              </div>
+              <div class="mastery-card locked" id="eqMStep5" data-step="5">
+                <div class="step-badge-row"><span class="mastery-tag" id="eqMTag5">Step 5</span><span class="thinking-badge thinking-badge-4">Level 4: Application & Challenge</span></div>
+                <h4>Write final answer.</h4>
+                <div class="equation-stack"><p class="equation-line"><strong>Final answer:</strong></p><p class="equation-line">θ = <input id="eqMInput5a" class="inline-eq-input" type="text" aria-label="first final answer" disabled>° or <input id="eqMInput5b" class="inline-eq-input" type="text" aria-label="second final answer" disabled>°</p></div>
+                <div class="hint-row" id="eqMHints5"></div>
+                <button class="btn btn-yellow" type="button" id="eqMCheck5" disabled>Check Step 5</button>
+                <div class="mastery-step-feedback hidden" id="eqMFeedback5"></div>
+              </div>
+            </div>
+          </section>          <section class="section section-slate" aria-labelledby="graph-solver-title">
+            <h3 id="graph-solver-title">Visual Solver: Graph and Unit Circle</h3>
+            <div class="solver-grid">
+              <div><div class="info-card mb-2"><h4>Configure Equation</h4><label class="label">Trigonometric Function</label><div class="btn-group" id="graphTrigButtons"></div><label class="label" for="eqConstSlider" id="eqConstLabel"></label><input type="range" id="eqConstSlider" class="range-purple" min="-1" max="1" step="0.1" value="0.5"><div class="btn-group mt-2" id="eqConstPresets"></div></div><div class="eq-display mb-2"><div class="eq-caption">Current Equation</div><div class="eq-text" id="eqDisplay"></div></div><div class="solutions-box" id="eqSolutionsBox"></div></div>
+              <div class="svg-center info-card"><h4>Graph View</h4><canvas id="eqGraphCanvas" width="300" height="300"></canvas></div>
+              <div class="svg-center info-card"><h4>Unit Circle View</h4><canvas id="eqCircleCanvas" width="280" height="280"></canvas></div>
+            </div>
+            <div class="info-card mt-2"><h4>Step-by-Step Solution</h4><div id="eqStepSolution" class="step-solution"></div></div>
+          </section>
+          <div id="solveWorkedExample"></div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-practice" data-lesson="practice" aria-labelledby="practice-title">
+        <div class="card lesson-card">
+          <div class="lesson-hero section section-indigo"><div><span class="mastery-tag">Lesson 4</span><h2 id="practice-title" class="text-indigo-900">Guided Practice</h2><p>Answer one step at a time. Later steps unlock only after the current step is mastered.</p></div></div>
+          <div id="practiceStructure"></div>
+          <div id="practiceThinking"></div>
+          <div id="guidedPractice"></div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-clinic" data-lesson="clinic" aria-labelledby="clinic-title">
+        <div class="card lesson-card">
+          <div class="lesson-hero section section-indigo"><div><span class="mastery-tag">Lesson 5</span><h2 id="clinic-title" class="text-indigo-900">Mistake Clinic</h2><p>Diagnose missing solutions, wrong quadrants, wrong signs, tangent undefined errors, and boundary-angle mistakes.</p></div></div>
+          <div id="clinicStructure"></div>
+          <div id="clinicThinking"></div>
+          <div id="equationMistakes"></div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-challenge" data-lesson="challenge" aria-labelledby="challenge-title">
+        <div class="card lesson-card">
+          <div class="lesson-hero section section-indigo"><div><span class="mastery-tag">Lesson 6</span><h2 id="challenge-title" class="text-indigo-900">Challenge Mode</h2><p>Transfer trig sign and equation-solving skills to new prompts without step-by-step scaffolding.</p></div></div>
+          <div id="challengeStructure"></div>
+          <div id="challengeThinking"></div>
+          <div id="challengeMode"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
+
+
+
+

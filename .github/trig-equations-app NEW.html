@@ -1,0 +1,1891 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CVA Trigonometry Master</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f1f5f9;
+    --white: #ffffff;
+    --slate-50: #f8fafc;
+    --slate-100: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-500: #64748b;
+    --slate-600: #475569;
+    --slate-700: #334155;
+    --slate-800: #1e293b;
+    --indigo-50: #eef2ff;
+    --indigo-600: #4f46e5;
+    --indigo-900: #1e1b4b;
+    --blue-50: #eff6ff;
+    --blue-100: #dbeafe;
+    --blue-500: #3b82f6;
+    --blue-600: #2563eb;
+    --blue-900: #1e3a8a;
+    --green-50: #f0fdf4;
+    --green-100: #dcfce7;
+    --green-600: #16a34a;
+    --green-800: #166534;
+    --green-900: #14532d;
+    --teal-50: #f0fdfa;
+    --teal-600: #0d9488;
+    --teal-900: #134e4a;
+    --purple-50: #faf5ff;
+    --purple-100: #f3e8ff;
+    --purple-600: #9333ea;
+    --purple-700: #7e22ce;
+    --purple-900: #581c87;
+    --yellow-50: #fefce8;
+    --yellow-100: #fef9c3;
+    --yellow-500: #eab308;
+    --yellow-600: #ca8a04;
+    --yellow-900: #713f12;
+    --orange-50: #fff7ed;
+    --orange-100: #ffedd5;
+    --orange-300: #fdba74;
+    --orange-600: #ea580c;
+    --red-50: #fef2f2;
+    --red-100: #fee2e2;
+    --red-300: #fca5a5;
+    --red-600: #dc2626;
+    --font: 'Nunito', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--font);
+    background: linear-gradient(135deg, #e8edf5 0%, #dde4f0 100%);
+    min-height: 100vh;
+    padding: 1.5rem 1rem;
+    color: var(--slate-800);
+  }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .header { text-align: center; margin-bottom: 2rem; }
+  .header h1 { font-size: 2.2rem; font-weight: 800; color: var(--slate-800); margin-bottom: 0.4rem; }
+  .header p { color: var(--slate-500); font-size: 1rem; }
+
+  /* TABS */
+  .tabs { display: flex; gap: 0.5rem; margin-bottom: 0; flex-wrap: wrap; }
+  .tab-btn {
+    padding: 0.65rem 1.4rem; border: none; border-radius: 10px 10px 0 0;
+    font-family: var(--font); font-size: 0.95rem; font-weight: 700;
+    cursor: pointer; transition: all 0.2s; background: var(--white);
+    color: var(--slate-600);
+  }
+  .tab-btn.active { background: var(--blue-600); color: #fff; transform: scale(1.04); box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
+  .tab-btn:not(.active):hover { background: var(--slate-100); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .card { background: var(--white); border-radius: 0 12px 12px 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); padding: 1.75rem; }
+
+  /* SECTIONS */
+  .section { margin-bottom: 1.5rem; }
+  .section-indigo { background: linear-gradient(135deg, var(--indigo-50), #f5f3ff); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--indigo-600); }
+  .section-blue { background: linear-gradient(135deg, var(--blue-50), var(--blue-100)); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--blue-600); }
+  .section-teal { background: linear-gradient(135deg, var(--teal-50), #e0fdf4); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--teal-600); }
+  .section-slate { background: var(--slate-50); padding: 1.5rem; border-radius: 12px; }
+  .section-yellow { background: linear-gradient(135deg, var(--yellow-50), var(--yellow-100)); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--yellow-500); }
+  .section-green { background: linear-gradient(135deg, var(--green-50), var(--green-100)); padding: 1.5rem; border-radius: 12px; }
+  .section-purple { background: linear-gradient(135deg, var(--purple-50), var(--purple-100)); padding: 1.5rem; border-radius: 12px; }
+  .section-orange { background: linear-gradient(135deg, var(--orange-50), var(--orange-100)); padding: 1.5rem; border-radius: 12px; }
+  .section-red { background: linear-gradient(135deg, var(--red-50), var(--red-100)); padding: 1.5rem; border-radius: 12px; }
+
+  .section h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem; }
+  .section h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .section h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+
+  .text-indigo-900 { color: var(--indigo-900); }
+  .text-blue-900 { color: var(--blue-900); }
+  .text-teal-900 { color: var(--teal-900); }
+  .text-yellow-900 { color: var(--yellow-900); }
+  .text-green-900 { color: var(--green-900); }
+  .text-purple-900 { color: var(--purple-900); }
+  .text-orange-900 { color: #7c2d12; }
+  .text-red-900 { color: #7f1d1d; }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+  @media (max-width: 768px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.6rem; }
+  }
+
+  /* CARDS */
+  .info-card { background: var(--white); border-radius: 10px; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+  .info-card h4 { font-size: 0.95rem; margin-bottom: 0.4rem; }
+  .info-card p { font-size: 0.85rem; color: var(--slate-600); line-height: 1.5; }
+
+  /* QUADRANT CARDS */
+  .q-card { padding: 0.75rem; border-radius: 8px; font-size: 0.87rem; }
+  .q-green { background: var(--green-50); border-left: 4px solid var(--green-600); }
+  .q-blue  { background: var(--blue-50); border-left: 4px solid var(--blue-500); }
+  .q-orange{ background: var(--orange-50); border-left: 4px solid var(--orange-600); }
+  .q-purple{ background: var(--purple-50); border-left: 4px solid var(--purple-600); }
+
+  /* BUTTONS */
+  .btn {
+    padding: 0.55rem 1.2rem; border: none; border-radius: 8px;
+    font-family: var(--font); font-weight: 700; cursor: pointer;
+    transition: all 0.18s; font-size: 0.9rem;
+  }
+  .btn-blue   { background: var(--blue-600); color: #fff; }
+  .btn-blue:hover   { background: var(--blue-900); }
+  .btn-green  { background: var(--green-600); color: #fff; }
+  .btn-green:hover  { background: var(--green-900); }
+  .btn-purple { background: var(--purple-600); color: #fff; }
+  .btn-purple:hover { background: var(--purple-700); }
+  .btn-yellow { background: var(--yellow-600); color: #fff; }
+  .btn-yellow:hover { background: var(--yellow-900); }
+  .btn-orange { background: var(--orange-600); color: #fff; }
+  .btn-orange:hover { background: #c2410c; }
+  .btn-red    { background: var(--red-600); color: #fff; }
+  .btn-red:hover    { background: #b91c1c; }
+  .btn-gray   { background: var(--slate-200); color: var(--slate-700); }
+  .btn-gray:hover   { background: var(--slate-300); }
+  .btn:disabled { background: var(--slate-200) !important; color: var(--slate-500) !important; cursor: not-allowed; }
+
+  .btn-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .trig-btn { padding: 0.4rem 0.9rem; border: none; border-radius: 7px; font-family: var(--font); font-weight: 700; cursor: pointer; font-size: 0.85rem; transition: all 0.18s; background: var(--slate-200); color: var(--slate-700); }
+  .trig-btn.active { background: var(--purple-600); color: #fff; }
+  .trig-btn-y.active { background: var(--yellow-600); color: #fff; }
+
+  .preset-btn { padding: 0.4rem 0.7rem; border: none; border-radius: 7px; font-family: var(--font); font-weight: 700; cursor: pointer; font-size: 0.85rem; transition: all 0.15s; }
+  .preset-blue { background: var(--blue-500); color: #fff; } .preset-blue:hover { background: var(--blue-600); }
+  .preset-yellow { background: var(--yellow-500); color: #fff; } .preset-yellow:hover { background: var(--yellow-600); }
+  .preset-purple { background: var(--purple-600); color: #fff; } .preset-purple:hover { background: var(--purple-700); }
+
+  /* INPUTS */
+  input[type="text"], input[type="number"] {
+    width: 100%; padding: 0.65rem 1rem; border-radius: 8px; font-family: var(--font);
+    font-size: 1rem; outline: none; transition: border 0.15s;
+  }
+  input.inp-yellow { border: 2px solid #fde68a; }
+  input.inp-yellow:focus { border-color: var(--yellow-600); }
+  input.inp-purple { border: 2px solid #d8b4fe; }
+  input.inp-purple:focus { border-color: var(--purple-600); }
+  input.inp-orange { border: 2px solid var(--orange-300); }
+  input.inp-orange:focus { border-color: var(--orange-600); }
+  input.inp-red { border: 2px solid var(--red-300); }
+  input.inp-red:focus { border-color: var(--red-600); }
+
+  input[type="range"] { width: 100%; -webkit-appearance: none; height: 6px; border-radius: 3px; outline: none; cursor: pointer; }
+  input[type="range"].range-blue { background: var(--blue-100); }
+  input[type="range"].range-purple { background: var(--purple-100); }
+  input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--blue-600); cursor: pointer; }
+  input[type="range"].range-purple::-webkit-slider-thumb { background: var(--purple-600); }
+
+  /* FEEDBACK */
+  .feedback { margin-top: 1rem; padding: 0.9rem 1.1rem; border-radius: 8px; display: flex; align-items: flex-start; gap: 0.6rem; }
+  .feedback-ok  { background: var(--green-100); border-left: 4px solid var(--green-600); }
+  .feedback-err { background: #fef9c3; border-left: 4px solid var(--yellow-600); }
+  .feedback-icon { font-size: 1.1rem; margin-top: 0.1rem; }
+  .feedback p { font-size: 0.9rem; line-height: 1.5; }
+
+  /* SOLUTION STEPS (animated) */
+  .step-box { background: var(--slate-100); padding: 0.8rem 1rem; border-radius: 8px; margin-bottom: 0.6rem; overflow: hidden; max-height: 0; opacity: 0; transition: max-height 0.5s ease, opacity 0.5s ease; }
+  .step-box.visible { max-height: 200px; opacity: 1; }
+  .step-box strong { display: block; margin-bottom: 0.3rem; }
+  .final-box { background: linear-gradient(135deg, #16a34a, #15803d); color: #fff; padding: 1rem; border-radius: 8px; overflow: hidden; max-height: 0; opacity: 0; transition: max-height 0.5s ease, opacity 0.5s ease; }
+  .final-box.visible { max-height: 200px; opacity: 1; }
+
+  /* WORKED EXAMPLE */
+  .example-solution { margin-top: 1rem; border-top: 1px solid var(--slate-200); padding-top: 1rem; display: none; }
+  .example-solution.show { display: block; }
+  .example-solution p { margin-bottom: 0.4rem; font-size: 0.9rem; line-height: 1.6; }
+  .answer-box { background: var(--blue-50); border-left: 4px solid var(--blue-600); padding: 0.7rem 1rem; border-radius: 8px; margin-top: 0.6rem; font-weight: 700; }
+
+  /* SHOW/HIDE TOGGLE BTN */
+  .toggle-btn { display: flex; align-items: center; gap: 0.4rem; }
+  .toggle-btn svg { transition: transform 0.2s; }
+  .toggle-btn.open svg { transform: rotate(180deg); }
+
+  /* DARK INFO BOX */
+  .dark-box { background: linear-gradient(135deg, #334155, #1e293b); color: #fff; padding: 1rem; border-radius: 10px; }
+  .dark-box h4 { color: #cbd5e1; margin-bottom: 0.5rem; }
+  .dark-box ol { padding-left: 1.2rem; font-size: 0.87rem; line-height: 2; }
+
+  /* SIGN BADGES */
+  .badge { display: inline-block; padding: 0.25rem 0.7rem; border-radius: 6px; font-size: 0.82rem; font-weight: 800; margin-top: 0.4rem; }
+  .badge-green { background: var(--green-100); color: var(--green-800); }
+  .badge-red   { background: var(--red-100); color: #991b1b; }
+  .badge-gray  { background: var(--slate-200); color: var(--slate-700); }
+
+  /* EQUATION SOLVER */
+  .eq-display { background: linear-gradient(135deg, var(--purple-600), var(--purple-700)); color: #fff; padding: 1.2rem; border-radius: 10px; text-align: center; margin-bottom: 1rem; }
+  .eq-display .eq-text { font-size: 1.8rem; font-weight: 800; font-family: var(--mono); }
+  .solutions-box { background: var(--green-50); border-left: 4px solid var(--green-600); padding: 1rem; border-radius: 8px; }
+  .solutions-box p { font-size: 1.1rem; font-weight: 800; color: var(--green-800); margin-bottom: 0.2rem; }
+
+  /* FORMULA BOX */
+  .formula-box { background: var(--blue-50); border-left: 4px solid var(--blue-500); padding: 0.8rem 1rem; border-radius: 8px; margin-top: 0.75rem; font-size: 0.9rem; }
+  .formula-box strong { color: var(--blue-900); display: block; margin-bottom: 0.2rem; }
+
+  /* STEP-BY-STEP SOLVING */
+  .step-border-blue { border-left: 4px solid var(--blue-500); padding-left: 0.8rem; margin-bottom: 0.6rem; }
+  .step-border-green { border-left: 4px solid var(--green-600); padding-left: 0.8rem; margin-bottom: 0.6rem; }
+  .step-border-orange { border-left: 4px solid var(--orange-600); padding-left: 0.8rem; margin-bottom: 0.6rem; }
+  ol.steps-list { padding-left: 1.2rem; color: var(--slate-700); font-size: 0.9rem; line-height: 2; }
+
+  /* CANVAS WRAPPER */
+  .svg-wrapper { background: var(--white); border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 0.75rem; overflow: hidden; }
+  .svg-center { display: flex; flex-direction: column; align-items: center; }
+
+  /* HINT BOX */
+  .hint-box { background: #fefce8; border-left: 4px solid var(--yellow-500); padding: 0.7rem 1rem; border-radius: 8px; font-size: 0.87rem; margin-bottom: 0.75rem; color: var(--slate-700); }
+
+  /* LAYOUT for solver */
+  .solver-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+  @media (max-width: 900px) { .solver-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 680px) { .grid-3 { grid-template-columns: 1fr 1fr; } }
+
+  .small-text { font-size: 0.88rem; color: var(--slate-600); margin-bottom: 0.5rem; }
+  .mt-1 { margin-top: 0.4rem; }
+  .mt-2 { margin-top: 0.75rem; }
+  .mt-3 { margin-top: 1.2rem; }
+  .mb-1 { margin-bottom: 0.4rem; }
+  .mb-2 { margin-bottom: 0.75rem; }
+  .mb-3 { margin-bottom: 1.2rem; }
+  .label { font-size: 0.88rem; font-weight: 700; color: var(--slate-700); display: block; margin-bottom: 0.4rem; }
+
+  /* MIND MAP SVG */
+  .mindmap-wrap { background: var(--white); border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); padding: 1rem; overflow-x: auto; }
+
+  /* SIGN TEXT COLORED */
+  .text-green { color: var(--green-600); font-weight: 700; }
+  .text-red { color: var(--red-600); font-weight: 700; }
+
+  /* CVA MASTERY FLOW */
+  .cva-flow { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0.5rem; margin-bottom: 1rem; }
+  .cva-chip { background: var(--white); border: 1px solid var(--slate-200); border-radius: 8px; padding: 0.55rem 0.45rem; text-align: center; font-size: 0.78rem; font-weight: 800; color: var(--slate-700); }
+  .cva-chip.active { background: var(--blue-600); color: #fff; border-color: var(--blue-600); box-shadow: 0 4px 12px rgba(37,99,235,0.22); }
+  .mastery-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start; }
+  .mastery-card { background: var(--white); border-radius: 10px; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.07); border: 1px solid var(--slate-100); }
+  .mastery-card.locked { opacity: 0.55; }
+  .mastery-card.locked input, .mastery-card.locked button { pointer-events: none; }
+  .mastery-tag { display: inline-block; padding: 0.2rem 0.55rem; border-radius: 999px; background: var(--slate-100); color: var(--slate-600); font-size: 0.72rem; font-weight: 800; margin-bottom: 0.5rem; }
+  .mastery-tag.done { background: var(--green-100); color: var(--green-800); }
+  .diagnosis-box { background: var(--yellow-50); border-left: 4px solid var(--yellow-500); padding: 0.85rem 1rem; border-radius: 8px; color: var(--yellow-900); font-size: 0.9rem; line-height: 1.55; }
+  .transfer-box { background: linear-gradient(135deg, var(--teal-50), #dcfce7); border-left: 4px solid var(--teal-600); padding: 1rem; border-radius: 8px; }
+  .thinking-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; }
+  .thinking-card { background: var(--white); border-radius: 10px; padding: 0.9rem; border-top: 4px solid var(--blue-600); box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+  .thinking-card:nth-child(2) { border-top-color: var(--teal-600); }
+  .thinking-card:nth-child(3) { border-top-color: var(--purple-600); }
+  .thinking-card:nth-child(4) { border-top-color: var(--orange-600); }
+  .thinking-level { display: block; font-size: 0.75rem; font-weight: 800; color: var(--slate-500); margin-bottom: 0.3rem; }
+  .thinking-card h4 { margin-bottom: 0.35rem; }
+  .thinking-card p { font-size: 0.85rem; color: var(--slate-600); line-height: 1.45; }
+  .lesson-structure { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; }
+  .lesson-structure .info-card { border-top: 4px solid var(--blue-600); }
+  .lesson-structure .info-card:nth-child(2) { border-top-color: var(--purple-600); }
+  .lesson-structure .info-card:nth-child(3) { border-top-color: var(--green-600); }
+  .lesson-structure ul { margin-left: 1.1rem; color: var(--slate-600); font-size: 0.86rem; line-height: 1.65; }
+  .locked-note { color: var(--slate-500); font-size: 0.84rem; margin-bottom: 0.8rem; }
+  .table-scroll { width: 100%; overflow-x: auto; }
+  .trig-table { width: 100%; min-width: 520px; border-collapse: collapse; overflow: hidden; border-radius: 8px; font-size: 0.9rem; }
+  .trig-table th, .trig-table td { padding: 0.65rem 0.75rem; text-align: center; border: 1px solid var(--slate-200); }
+  .trig-table th { background: var(--slate-800); color: #fff; font-weight: 800; }
+  .trig-table td:first-child { font-weight: 800; color: var(--slate-800); background: var(--slate-50); }
+  .mistake-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; margin-bottom: 1rem; }
+  .mistake-item { background: var(--white); border: 1px solid var(--red-100); border-left: 4px solid var(--red-600); border-radius: 8px; padding: 0.8rem; }
+  .mistake-item strong { display: block; color: #7f1d1d; margin-bottom: 0.3rem; }
+  .mistake-item p { color: var(--slate-600); font-size: 0.86rem; line-height: 1.45; }
+  @media (max-width: 900px) {
+    .cva-flow { grid-template-columns: 1fr 1fr; }
+    .mastery-panel { grid-template-columns: 1fr; }
+    .thinking-grid { grid-template-columns: 1fr; }
+    .lesson-structure { grid-template-columns: 1fr; }
+    .mistake-list { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>CVA Trigonometry Master</h1>
+    <p>Focused only on sine, cosine, tangent, the unit circle, quadrant signs, reference angles, boundary angles, common mistakes, and solving trig equations on 0° ≤ θ ≤ 360°</p>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(0)">Unit Circle &amp; Quadrant Signs</button>
+    <button class="tab-btn" onclick="switchTab(1)">Reference Angles &amp; Trig Equations</button>
+  </div>
+
+  <!-- TAB 1 -->
+  <div class="tab-panel active" id="tab-0">
+    <div class="card">
+
+      <!-- MIND MAP -->
+      <div class="section section-indigo">
+        <h2 class="text-indigo-900" style="text-align:center">Concept Mind Map: Signs of Trigonometric Ratios</h2>
+        <div class="mindmap-wrap">
+          <svg width="100%" height="400" viewBox="0 0 900 400" style="min-width:600px">
+            <ellipse cx="450" cy="200" rx="110" ry="50" fill="#6366f1" stroke="#4338ca" stroke-width="3"/>
+            <text x="450" y="195" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Signs of Trig</text>
+            <text x="450" y="215" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Ratios</text>
+            <line x1="360" y1="175" x2="180" y2="100" stroke="#10b981" stroke-width="3"/>
+            <circle cx="180" cy="100" r="60" fill="#10b981" stroke="#059669" stroke-width="2"/>
+            <text x="180" y="95" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Unit Circle</text>
+            <text x="180" y="112" font-size="12" fill="white" text-anchor="middle">Circle</text>
+            <line x1="140" y1="70" x2="80" y2="40" stroke="#10b981" stroke-width="2"/>
+            <rect x="20" y="20" width="120" height="40" rx="5" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+            <text x="80" y="45" font-size="11" fill="#065f46" text-anchor="middle" font-weight="bold">(cos θ, sin θ)</text>
+            <line x1="540" y1="175" x2="720" y2="100" stroke="#3b82f6" stroke-width="3"/>
+            <circle cx="720" cy="100" r="60" fill="#3b82f6" stroke="#1e40af" stroke-width="2"/>
+            <text x="720" y="95" font-size="14" font-weight="bold" fill="white" text-anchor="middle">ASTC Rule</text>
+            <text x="720" y="112" font-size="12" fill="white" text-anchor="middle">Memory Aid</text>
+            <line x1="760" y1="70" x2="820" y2="40" stroke="#3b82f6" stroke-width="2"/>
+            <rect x="760" y="20" width="120" height="40" rx="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+            <text x="820" y="35" font-size="10" fill="#1e3a8a" text-anchor="middle" font-weight="bold">All-Sin-Tan-Cos</text>
+            <text x="820" y="50" font-size="10" fill="#1e3a8a" text-anchor="middle">by Quadrant</text>
+            <line x1="450" y1="250" x2="300" y2="330" stroke="#f59e0b" stroke-width="3"/>
+            <ellipse cx="300" cy="330" rx="65" ry="40" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+            <text x="300" y="325" font-size="13" font-weight="bold" fill="white" text-anchor="middle">sin, cos, tan</text>
+            <text x="300" y="342" font-size="11" fill="white" text-anchor="middle">Functions</text>
+            <line x1="250" y1="350" x2="200" y2="380" stroke="#f59e0b" stroke-width="2"/>
+            <rect x="160" y="365" width="80" height="30" rx="5" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+            <text x="200" y="385" font-size="10" fill="#92400e" text-anchor="middle" font-weight="bold">y-coordinate</text>
+            <line x1="300" y1="370" x2="300" y2="380" stroke="#f59e0b" stroke-width="2"/>
+            <rect x="260" y="365" width="80" height="30" rx="5" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+            <text x="300" y="385" font-size="10" fill="#92400e" text-anchor="middle" font-weight="bold">x-coordinate</text>
+            <line x1="350" y1="350" x2="400" y2="380" stroke="#f59e0b" stroke-width="2"/>
+            <rect x="360" y="365" width="80" height="30" rx="5" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+            <text x="400" y="385" font-size="10" fill="#92400e" text-anchor="middle" font-weight="bold">y/x ratio</text>
+            <line x1="450" y1="250" x2="600" y2="330" stroke="#8b5cf6" stroke-width="3"/>
+            <ellipse cx="600" cy="330" rx="65" ry="40" fill="#8b5cf6" stroke="#6d28d9" stroke-width="2"/>
+            <text x="600" y="325" font-size="13" font-weight="bold" fill="white" text-anchor="middle">4 Quadrants</text>
+            <text x="600" y="342" font-size="11" fill="white" text-anchor="middle">0° – 360°</text>
+            <line x1="550" y1="350" x2="500" y2="380" stroke="#8b5cf6" stroke-width="2"/>
+            <rect x="465" y="365" width="70" height="30" rx="5" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+            <text x="500" y="377" font-size="9" fill="#5b21b6" text-anchor="middle" font-weight="bold">I: 0–90°</text>
+            <text x="500" y="388" font-size="9" fill="#5b21b6" text-anchor="middle">All +</text>
+            <line x1="600" y1="370" x2="600" y2="380" stroke="#8b5cf6" stroke-width="2"/>
+            <rect x="555" y="365" width="90" height="30" rx="5" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+            <text x="600" y="377" font-size="9" fill="#5b21b6" text-anchor="middle" font-weight="bold">II: 90°–180°</text>
+            <text x="600" y="388" font-size="9" fill="#5b21b6" text-anchor="middle">Sin +</text>
+            <line x1="650" y1="350" x2="700" y2="380" stroke="#8b5cf6" stroke-width="2"/>
+            <rect x="655" y="365" width="90" height="30" rx="5" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+            <text x="700" y="377" font-size="9" fill="#5b21b6" text-anchor="middle" font-weight="bold">III &amp; IV</text>
+            <text x="700" y="388" font-size="9" fill="#5b21b6" text-anchor="middle">Tan+, Cos+</text>
+            <line x1="360" y1="225" x2="180" y2="280" stroke="#ec4899" stroke-width="3"/>
+            <ellipse cx="180" cy="280" rx="65" ry="40" fill="#ec4899" stroke="#be185d" stroke-width="2"/>
+            <text x="180" y="275" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Concrete</text>
+            <text x="180" y="292" font-size="11" fill="white" text-anchor="middle">Angles</text>
+            <line x1="130" y1="305" x2="80" y2="340" stroke="#ec4899" stroke-width="2"/>
+            <rect x="20" y="325" width="120" height="30" rx="5" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+            <text x="80" y="345" font-size="10" fill="#9f1239" text-anchor="middle" font-weight="bold">Boundary Angles</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- LESSON STRUCTURE -->
+      <div class="section section-slate">
+        <h3 style="color:var(--slate-800)">Lesson Structure: Unit Circle &amp; Quadrant Signs</h3>
+        <div class="lesson-structure">
+          <div class="info-card">
+            <h4 style="color:var(--blue-900)">CVA Flow</h4>
+            <ul>
+              <li><strong>Concrete:</strong> read a rotating point as right/left and above/below positions.</li>
+              <li><strong>Visual:</strong> use the unit circle, function graphs, slider, and animation.</li>
+              <li><strong>Abstract:</strong> apply sin from y, cos from x, tan from y/x, and ASTC notation.</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h4 style="color:var(--purple-900)">4 Thinking Framework</h4>
+            <ul>
+              <li>Level 1: intuition and basic logic.</li>
+              <li>Level 2: pattern and visual structure.</li>
+              <li>Level 3: abstraction and generalization.</li>
+              <li>Level 4: application and challenge.</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h4 style="color:var(--green-900)">Mastery Solver</h4>
+            <ul>
+              <li>Answer quadrant, positive function, then sign pattern.</li>
+              <li>Later steps stay locked until the current answer is correct.</li>
+              <li>Feedback gives correction, hints, and transfer practice.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRIG FUNCTION FOCUS -->
+      <div class="section section-teal">
+        <h3 class="text-teal-900">Concrete Trig Function Focus</h3>
+        <div class="grid-2">
+          <div class="info-card"><h4 style="color:#0f766e">Sine</h4><p>sin(θ) follows the vertical value on the unit circle and changes sign above or below the x-axis.</p></div>
+          <div class="info-card"><h4 style="color:#0f766e">Cosine</h4><p>cos(θ) follows the horizontal value on the unit circle and changes sign left or right of the y-axis.</p></div>
+          <div class="info-card"><h4 style="color:#0f766e">Tangent</h4><p>tan(θ) compares sine and cosine signs. It is positive when sin and cos have the same sign.</p></div>
+          <div class="info-card"><h4 style="color:#0f766e">Boundary Angles</h4><p>At 0°, 90°, 180°, 270°, and 360°, one function may be zero or tangent may be undefined.</p></div>
+        </div>
+      </div>
+
+      <!-- 4 THINKING FRAMEWORK -->
+      <div class="section section-slate">
+        <h3 style="color:var(--slate-800)">4 Thinking Framework: Trig Function Signs</h3>
+        <div class="thinking-grid">
+          <div class="thinking-card">
+            <span class="thinking-level">Level 1</span>
+            <h4>Intuition &amp; Basic Logic</h4>
+            <p>Start with the point on the unit circle: above means sin is positive, right means cos is positive.</p>
+          </div>
+          <div class="thinking-card">
+            <span class="thinking-level">Level 2</span>
+            <h4>Pattern &amp; Visual Structure</h4>
+            <p>Use the four quadrants to see the repeating sign pattern for sin, cos, and tan.</p>
+          </div>
+          <div class="thinking-card">
+            <span class="thinking-level">Level 3</span>
+            <h4>Abstraction &amp; Generalization</h4>
+            <p>Use ASTC and the unit-circle notation (cos θ, sin θ) to decide signs for any angle.</p>
+          </div>
+          <div class="thinking-card">
+            <span class="thinking-level">Level 4</span>
+            <h4>Application &amp; Challenge</h4>
+            <p>Diagnose boundary angles and transfer the sign pattern to unfamiliar angles.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ASTC RULE -->
+      <div class="section section-blue">
+        <h2 class="text-blue-900">Signs of Trigonometric Ratios</h2>
+        <div class="info-card mb-2">
+          <p style="font-size:1rem;font-weight:700;color:var(--slate-700);margin-bottom:0.75rem">ASTC Rule (All, Sin, Tan, Cos)</p>
+          <div class="grid-2">
+            <div class="q-card q-green"><strong>Quadrant I (0°–90°):</strong> All positive (sin+, cos+, tan+)</div>
+            <div class="q-card q-blue"><strong>Quadrant II (90°–180°):</strong> Sin positive (sin+, cos−, tan−)</div>
+            <div class="q-card q-orange"><strong>Quadrant III (180°–270°):</strong> Tan positive (sin−, cos−, tan+)</div>
+            <div class="q-card q-purple"><strong>Quadrant IV (270°–360°):</strong> Cos positive (sin−, cos+, tan−)</div>
+          </div>
+        </div>
+        <div class="hint-box"><strong>Special Note:</strong> tan is undefined at 90° and 270°. sin = 0 at 0°, 180°, and 360°. cos = 0 at 90° and 270°.</div>
+      </div>
+
+      <!-- BOUNDARY ANGLES -->
+      <div class="section section-orange">
+        <h3 class="text-orange-900">Boundary Angles for sin, cos, and tan</h3>
+        <div class="info-card">
+          <div class="table-scroll">
+          <table class="trig-table" aria-label="Boundary angle values for sine cosine and tangent">
+            <thead>
+              <tr><th>θ</th><th>sin(θ)</th><th>cos(θ)</th><th>tan(θ)</th><th>Unit-circle point</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0°</td><td>0</td><td>1</td><td>0</td><td>(1, 0)</td></tr>
+              <tr><td>90°</td><td>1</td><td>0</td><td>undefined</td><td>(0, 1)</td></tr>
+              <tr><td>180°</td><td>0</td><td>−1</td><td>0</td><td>(−1, 0)</td></tr>
+              <tr><td>270°</td><td>−1</td><td>0</td><td>undefined</td><td>(0, −1)</td></tr>
+              <tr><td>360°</td><td>0</td><td>1</td><td>0</td><td>(1, 0)</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <div class="hint-box mt-2"><strong>Trig check:</strong> tangent is undefined exactly when cos(θ) = 0, because tan(θ) = sin(θ) / cos(θ).</div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE VISUALIZATIONS -->
+      <div class="section section-slate">
+        <h3 style="color:var(--slate-800)">Interactive Visualizations</h3>
+
+        <div class="info-card mb-2">
+          <h4 style="text-align:center;font-size:1.05rem;margin-bottom:1rem">Combined Trigonometric Functions</h4>
+          <div class="grid-3">
+            <div class="svg-center">
+              <h4 style="color:#059669">Sine Function</h4>
+              <canvas id="sinCanvas" width="260" height="180"></canvas>
+              <div id="sinBadge" class="badge badge-green mt-1">sin(45°) = 0.707 (+)</div>
+            </div>
+            <div class="svg-center">
+              <h4 style="color:var(--blue-600)">Cosine Function</h4>
+              <canvas id="cosCanvas" width="260" height="180"></canvas>
+              <div id="cosBadge" class="badge badge-green mt-1">cos(45°) = 0.707 (+)</div>
+            </div>
+            <div class="svg-center">
+              <h4 style="color:#ea580c">Tangent Function</h4>
+              <canvas id="tanCanvas" width="260" height="180"></canvas>
+              <div id="tanBadge" class="badge badge-green mt-1">tan(45°) = 1.000 (+)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2 mt-2">
+          <div class="svg-center info-card">
+            <h4 style="color:var(--slate-700);margin-bottom:0.5rem">Unit Circle View</h4>
+            <canvas id="unitCircle1" width="280" height="280"></canvas>
+          </div>
+          <div class="info-card" style="display:flex;flex-direction:column;gap:0.9rem">
+            <div>
+              <label class="label" id="angleLabel">Angle: 45° (Quadrant I)</label>
+              <input type="range" id="angleSlider" class="range-blue" min="0" max="360" value="45" oninput="updateAngle(this.value)">
+            </div>
+            <div class="btn-group">
+              <button class="preset-btn preset-blue" onclick="updateAngle(45)">45°</button>
+              <button class="preset-btn preset-blue" onclick="updateAngle(135)">135°</button>
+              <button class="preset-btn preset-blue" onclick="updateAngle(225)">225°</button>
+              <button class="preset-btn preset-blue" onclick="updateAngle(315)">315°</button>
+              <button class="preset-btn preset-yellow" onclick="updateAngle(90)">90°</button>
+              <button class="preset-btn preset-yellow" onclick="updateAngle(270)">270°</button>
+            </div>
+            <div class="dark-box">
+              <h4>How to Use:</h4>
+              <ol>
+                <li>Move the slider or click preset angles</li>
+                <li>Watch the red marker move across all three graphs</li>
+                <li>See how the circle position relates to graph heights</li>
+                <li>Notice sign changes at quadrant boundaries</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CVA INTERACTIVE EXAMPLE: Identify Signs -->
+      <div class="section section-yellow">
+        <h3 class="text-yellow-900">Interactive Example: CVA Sign Solver</h3>
+        <div class="cva-flow">
+          <div class="cva-chip active">1 Concrete: real-life meaning</div>
+          <div class="cva-chip active">2 Visual: graph/unit circle</div>
+          <div class="cva-chip active">3 Abstract: rule/notation</div>
+          <div class="cva-chip active">4 Mastery Solver</div>
+          <div class="cva-chip">5 Step Practice</div>
+          <div class="cva-chip">6 Feedback &amp; Hints</div>
+          <div class="cva-chip">7 Transfer Challenge</div>
+        </div>
+        <p class="small-text mb-2">Use the unit circle position, then move from quadrant to signs: sin from y, cos from x, tan from y/x.</p>
+        <div class="grid-2">
+          <div class="info-card">
+            <span class="mastery-tag">Concrete → Visual</span>
+            <label class="label">Angle (degrees)</label>
+            <input type="number" id="t1AngleInput" class="inp-yellow mb-2" placeholder="e.g., 210" oninput="resetT1Solution()">
+            <button class="btn btn-yellow" onclick="showT1Solution()" id="t1SolveBtn" disabled style="width:100%;margin-bottom:0.6rem">Show Solution</button>
+            <div id="t1FormulaBox" class="formula-box" style="display:none">
+              <strong>Abstract Rule</strong>
+              <span>ASTC: All, Sin, Tan, Cos by Quadrant</span>
+            </div>
+          </div>
+          <div class="info-card" id="t1SolutionPanel">
+            <div class="step-box" id="t1Step0"><strong>1. Identify Quadrant:</strong><p id="t1Step0Text"></p></div>
+            <div class="step-box" id="t1Step1"><strong>2. Read the Visual:</strong><p id="t1Step1Text"></p></div>
+            <div class="step-box" id="t1Step2">
+              <strong>3. Apply ASTC and Determine Signs:</strong>
+              <p id="t1Step2Sin"></p>
+              <p id="t1Step2Cos"></p>
+              <p id="t1Step2Tan"></p>
+            </div>
+            <div class="final-box" id="t1FinalBox">
+              <strong style="font-size:1.1rem">Final Answer:</strong>
+              <p id="t1FinalText" style="margin-top:0.4rem"></p>
+            </div>
+            <p style="text-align:center;color:var(--slate-500);padding:2rem 0;font-size:0.9rem" id="t1Placeholder">Enter an angle and click Show Solution!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- WORKED EXAMPLE (Tab 1) -->
+      <div class="section section-green">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+          <h3 class="text-green-900" style="margin:0">Worked Example</h3>
+          <button class="btn btn-green toggle-btn" id="t1ExampleBtn" onclick="toggleT1Example()">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            Show Solution
+          </button>
+        </div>
+        <div class="info-card">
+          <p style="font-weight:700;color:var(--slate-800)">Question: Determine the signs of sin, cos, and tan for an angle of 210°.</p>
+          <div class="example-solution" id="t1ExampleSolution">
+            <p><strong>Step 1:</strong> Identify the quadrant. 210° is between 180° and 270°, so it is in <strong>Quadrant III</strong>.</p>
+            <p><strong>Step 2:</strong> Apply ASTC rule. In Quadrant III, only Tan is positive.</p>
+            <p><strong>Step 3:</strong> Determine signs:</p>
+            <ul style="margin-left:1.2rem;margin-bottom:0.5rem;font-size:0.9rem;line-height:2">
+              <li>sin(210°) is <span class="text-red">negative</span></li>
+              <li>cos(210°) is <span class="text-red">negative</span></li>
+              <li>tan(210°) is <span class="text-green">positive</span></li>
+            </ul>
+            <div class="answer-box">Answer: sin(−), cos(−), tan(+)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MASTERY PRACTICE (Tab 1) -->
+      <div class="section section-purple">
+        <h3 class="text-purple-900">Mastery Solver: Sign Pattern Practice</h3>
+        <p class="locked-note">Answer each step in order. Locked steps give a hint when selected and unlock only after the current step is correct.</p>
+        <div class="cva-flow">
+          <div class="cva-chip">1 Concrete: real-life meaning</div>
+          <div class="cva-chip">2 Visual: graph/unit circle</div>
+          <div class="cva-chip">3 Abstract: rule/notation</div>
+          <div class="cva-chip active">4 Mastery Solver</div>
+          <div class="cva-chip active">5 Step Practice</div>
+          <div class="cva-chip active">6 Feedback &amp; Hints</div>
+          <div class="cva-chip active">7 Transfer Challenge</div>
+        </div>
+        <div class="mastery-panel">
+          <div>
+            <div class="mastery-card mb-2" id="t1PracticeStep1">
+              <span class="mastery-tag" id="t1Step1Tag">Step 1</span>
+              <p style="font-weight:700;color:var(--slate-800);margin-bottom:0.75rem">Concrete angle: 315°. Which quadrant is it in?</p>
+              <input type="text" id="t1PracticeQuadrant" class="inp-purple mb-2" placeholder="e.g., IV or 4">
+              <button class="btn btn-purple" onclick="checkT1PracticeStep(1)">Check Step 1</button>
+            </div>
+            <div class="mastery-card locked mb-2" id="t1PracticeStep2" onclick="showLockedHint('t1PracticeStep2', 't1PracticeFeedback', '<strong>Hint:</strong> Complete Step 1 first. The solver unlocks one step at a time.')">
+              <span class="mastery-tag" id="t1Step2Tag">Step 2</span>
+              <p style="font-weight:700;color:var(--slate-800);margin-bottom:0.75rem">Visual sign: in that quadrant, which function is positive?</p>
+              <input type="text" id="t1PracticePositive" class="inp-purple mb-2" placeholder="sin, cos, or tan" disabled>
+              <button class="btn btn-purple" onclick="checkT1PracticeStep(2)" disabled>Check Step 2</button>
+            </div>
+            <div class="mastery-card locked" id="t1PracticeStep3" onclick="showLockedHint('t1PracticeStep3', 't1PracticeFeedback', '<strong>Hint:</strong> Complete Step 2 first. The final signs unlock after the positive function is correct.')">
+              <span class="mastery-tag" id="t1Step3Tag">Step 3</span>
+              <p style="font-weight:700;color:var(--slate-800);margin-bottom:0.75rem">Abstract result: enter signs for sin, cos, tan.</p>
+              <input type="text" id="t1PracticeSigns" class="inp-purple mb-2" placeholder="e.g., -, +, -" disabled>
+              <button class="btn btn-purple" onclick="checkT1PracticeStep(3)" disabled>Check Final Signs</button>
+            </div>
+          </div>
+          <div>
+            <div id="t1PracticeFeedback" class="diagnosis-box mb-2">Mistake diagnosis appears here after each check.</div>
+            <div class="transfer-box">
+              <h4 class="text-teal-900">Transfer Question</h4>
+              <p class="small-text mb-2">Without calculating exact values, what is the sign pattern for 150°?</p>
+              <input type="text" id="t1TransferInput" class="inp-purple mb-2" placeholder="sin, cos, tan signs" disabled>
+              <button class="btn btn-green" onclick="checkT1Transfer()" disabled>Check Transfer</button>
+              <div id="t1TransferFeedback" style="display:none" class="feedback"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end card -->
+  </div><!-- end tab-0 -->
+
+  <!-- TAB 2 -->
+  <div class="tab-panel" id="tab-1">
+    <div class="card">
+
+      <!-- MIND MAP 2 -->
+      <div class="section section-indigo">
+        <h2 class="text-indigo-900" style="text-align:center">Concept Mind Map: Solving Trigonometric Equations</h2>
+        <div class="mindmap-wrap">
+          <svg width="100%" height="400" viewBox="0 0 900 400" style="min-width:600px">
+            <ellipse cx="450" cy="200" rx="120" ry="50" fill="#7c3aed" stroke="#5b21b6" stroke-width="3"/>
+            <text x="450" y="195" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Solving Trig</text>
+            <text x="450" y="215" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Equations</text>
+            <line x1="350" y1="170" x2="180" y2="80" stroke="#10b981" stroke-width="3"/>
+            <circle cx="180" cy="80" r="55" fill="#10b981" stroke="#059669" stroke-width="2"/>
+            <text x="180" y="75" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Solution</text>
+            <text x="180" y="92" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Methods</text>
+            <line x1="140" y1="50" x2="80" y2="25" stroke="#10b981" stroke-width="2"/>
+            <rect x="20" y="10" width="120" height="30" rx="5" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+            <text x="80" y="30" font-size="10" fill="#065f46" text-anchor="middle" font-weight="bold">Inverse Functions</text>
+            <line x1="220" y1="50" x2="280" y2="25" stroke="#10b981" stroke-width="2"/>
+            <rect x="220" y="10" width="120" height="30" rx="5" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+            <text x="280" y="30" font-size="10" fill="#065f46" text-anchor="middle" font-weight="bold">Graph Intersection</text>
+            <line x1="550" y1="170" x2="720" y2="80" stroke="#3b82f6" stroke-width="3"/>
+            <circle cx="720" cy="80" r="55" fill="#3b82f6" stroke="#1e40af" stroke-width="2"/>
+            <text x="720" y="75" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Equation</text>
+            <text x="720" y="92" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Types</text>
+            <line x1="680" y1="50" x2="620" y2="25" stroke="#3b82f6" stroke-width="2"/>
+            <rect x="560" y="10" width="120" height="30" rx="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+            <text x="620" y="30" font-size="10" fill="#1e3a8a" text-anchor="middle" font-weight="bold">sin(θ) = k</text>
+            <line x1="760" y1="50" x2="820" y2="25" stroke="#3b82f6" stroke-width="2"/>
+            <rect x="760" y="10" width="120" height="30" rx="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+            <text x="820" y="25" font-size="9" fill="#1e3a8a" text-anchor="middle" font-weight="bold">cos, tan equations</text>
+            <line x1="450" y1="250" x2="280" y2="330" stroke="#f59e0b" stroke-width="3"/>
+            <ellipse cx="280" cy="330" rx="70" ry="45" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+            <text x="280" y="325" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Multiple</text>
+            <text x="280" y="342" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Solutions</text>
+            <line x1="230" y1="355" x2="180" y2="380" stroke="#f59e0b" stroke-width="2"/>
+            <rect x="120" y="365" width="120" height="30" rx="5" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+            <text x="180" y="385" font-size="10" fill="#92400e" text-anchor="middle" font-weight="bold">θ₁ in [0°, 180°]</text>
+            <line x1="330" y1="355" x2="380" y2="380" stroke="#f59e0b" stroke-width="2"/>
+            <rect x="320" y="365" width="120" height="30" rx="5" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+            <text x="380" y="385" font-size="10" fill="#92400e" text-anchor="middle" font-weight="bold">θ₂ in [180°, 360°]</text>
+            <line x1="450" y1="250" x2="620" y2="330" stroke="#8b5cf6" stroke-width="3"/>
+            <ellipse cx="620" cy="330" rx="70" ry="45" fill="#8b5cf6" stroke="#6d28d9" stroke-width="2"/>
+            <text x="620" y="325" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Solution</text>
+            <text x="620" y="342" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Interval</text>
+            <line x1="570" y1="355" x2="520" y2="380" stroke="#8b5cf6" stroke-width="2"/>
+            <rect x="460" y="365" width="120" height="30" rx="5" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+            <text x="520" y="385" font-size="10" fill="#5b21b6" text-anchor="middle" font-weight="bold">0° ≤ θ ≤ 360°</text>
+            <line x1="670" y1="355" x2="720" y2="380" stroke="#8b5cf6" stroke-width="2"/>
+            <rect x="660" y="365" width="120" height="30" rx="5" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+            <text x="720" y="385" font-size="10" fill="#5b21b6" text-anchor="middle" font-weight="bold">Degree Solutions</text>
+            <line x1="350" y1="230" x2="180" y2="280" stroke="#ec4899" stroke-width="3"/>
+            <ellipse cx="180" cy="280" rx="70" ry="40" fill="#ec4899" stroke="#be185d" stroke-width="2"/>
+            <text x="180" y="275" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Visualization</text>
+            <text x="180" y="292" font-size="12" fill="white" text-anchor="middle">Tools</text>
+            <line x1="130" y1="305" x2="80" y2="340" stroke="#ec4899" stroke-width="2"/>
+            <rect x="20" y="325" width="120" height="30" rx="5" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+            <text x="80" y="345" font-size="10" fill="#9f1239" text-anchor="middle" font-weight="bold">Unit Circle</text>
+            <line x1="230" y1="305" x2="280" y2="340" stroke="#ec4899" stroke-width="2"/>
+            <rect x="220" y="325" width="120" height="30" rx="5" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+            <text x="280" y="345" font-size="10" fill="#9f1239" text-anchor="middle" font-weight="bold">Function Graphs</text>
+            <line x1="550" y1="230" x2="720" y2="280" stroke="#14b8a6" stroke-width="3"/>
+            <ellipse cx="720" cy="280" rx="70" ry="40" fill="#14b8a6" stroke="#0f766e" stroke-width="2"/>
+            <text x="720" y="275" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Common</text>
+            <text x="720" y="292" font-size="12" fill="white" text-anchor="middle">Mistakes</text>
+            <line x1="670" y1="305" x2="620" y2="340" stroke="#14b8a6" stroke-width="2"/>
+            <rect x="560" y="325" width="120" height="30" rx="5" fill="#ccfbf1" stroke="#14b8a6" stroke-width="2"/>
+            <text x="620" y="345" font-size="10" fill="#134e4a" text-anchor="middle" font-weight="bold">Sign Errors</text>
+            <line x1="770" y1="305" x2="820" y2="340" stroke="#14b8a6" stroke-width="2"/>
+            <rect x="760" y="325" width="120" height="30" rx="5" fill="#ccfbf1" stroke="#14b8a6" stroke-width="2"/>
+            <text x="820" y="345" font-size="10" fill="#134e4a" text-anchor="middle" font-weight="bold">Missing Angles</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- LESSON STRUCTURE -->
+      <div class="section section-slate">
+        <h3 style="color:var(--slate-800)">Lesson Structure: Reference Angles &amp; Trig Equations</h3>
+        <div class="lesson-structure">
+          <div class="info-card">
+            <h4 style="color:var(--blue-900)">CVA Flow</h4>
+            <ul>
+              <li><strong>Concrete:</strong> treat the equation as a target sine, cosine, or tangent value.</li>
+              <li><strong>Visual:</strong> locate matching points on the graph and unit circle.</li>
+              <li><strong>Abstract:</strong> use θ_ref, quadrant signs, and solution notation on 0° ≤ θ ≤ 360°.</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h4 style="color:var(--purple-900)">4 Thinking Framework</h4>
+            <ul>
+              <li>Level 1: understand the target value.</li>
+              <li>Level 2: find all visual matches.</li>
+              <li>Level 3: generalize with reference-angle rules.</li>
+              <li>Level 4: handle boundary angles and diagnose mistakes.</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h4 style="color:var(--green-900)">Mastery Solver</h4>
+            <ul>
+              <li>Answer reference angle, quadrants, then final solutions.</li>
+              <li>Steps unlock only after correct answers.</li>
+              <li>Hints respond to skipped steps and common trig mistakes.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRIG EQUATION FOCUS -->
+      <div class="section section-teal">
+        <h3 class="text-teal-900">Concrete Trig Equation Focus</h3>
+        <div class="grid-2">
+          <div class="info-card"><h4 style="color:#0f766e">Reference Angle</h4><p>Use the positive size of the trig value to find the acute reference angle.</p></div>
+          <div class="info-card"><h4 style="color:#0f766e">Quadrant Signs</h4><p>Use the sign of the trig value to choose the correct quadrants before writing answers.</p></div>
+          <div class="info-card"><h4 style="color:#0f766e">Boundary Angles</h4><p>Check 0°, 90°, 180°, 270°, and 360° when the trig value is 0, 1, −1, or undefined.</p></div>
+          <div class="info-card"><h4 style="color:#0f766e">Common Mistakes</h4><p>Avoid using the final angle as the reference angle, choosing the wrong sign quadrants, or missing a second solution.</p></div>
+        </div>
+      </div>
+
+      <!-- 4 THINKING FRAMEWORK -->
+      <div class="section section-slate">
+        <h3 style="color:var(--slate-800)">4 Thinking Framework: Trig Equations</h3>
+        <div class="thinking-grid">
+          <div class="thinking-card">
+            <span class="thinking-level">Level 1</span>
+            <h4>Intuition &amp; Basic Logic</h4>
+            <p>Read the equation as a target value for sin, cos, or tan on 0° ≤ θ ≤ 360°.</p>
+          </div>
+          <div class="thinking-card">
+            <span class="thinking-level">Level 2</span>
+            <h4>Pattern &amp; Visual Structure</h4>
+            <p>Use the graph and unit circle to locate all matching positions, not just the first one.</p>
+          </div>
+          <div class="thinking-card">
+            <span class="thinking-level">Level 3</span>
+            <h4>Abstraction &amp; Generalization</h4>
+            <p>Find θ_ref with inverse trig, then use quadrant signs to write the full solution set.</p>
+          </div>
+          <div class="thinking-card">
+            <span class="thinking-level">Level 4</span>
+            <h4>Application &amp; Challenge</h4>
+            <p>Handle boundary angles and diagnose sign, reference-angle, and missing-solution mistakes.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOLVING INFO -->
+      <div class="section section-purple">
+        <h2 class="text-purple-900">Solving Trigonometric Equations</h2>
+        <div class="info-card">
+          <div class="step-border-blue">
+            <strong style="font-size:1rem">General Form:</strong>
+            <p style="color:var(--slate-700);font-size:0.9rem">trig(θ) = k, where trig is sin, cos, or tan</p>
+          </div>
+          <div class="step-border-green">
+            <strong style="font-size:1rem">Solution Steps:</strong>
+            <ol class="steps-list">
+              <li>Find the reference angle using inverse trig functions</li>
+              <li>Determine which quadrants have solutions based on the sign of k</li>
+              <li>Calculate all solutions in the interval 0° ≤ θ ≤ 360°</li>
+            </ol>
+          </div>
+          <div class="step-border-orange">
+            <strong style="font-size:1rem">Key Formulas:</strong>
+            <p style="color:var(--slate-700);font-size:0.9rem">θ = sin⁻¹(k) &nbsp;|&nbsp; θ = cos⁻¹(k) &nbsp;|&nbsp; θ = tan⁻¹(k)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- REFERENCE ANGLE RULES -->
+      <div class="section section-green">
+        <h3 class="text-green-900">Reference Angle Rules</h3>
+        <div class="grid-2">
+          <div class="info-card">
+            <h4 style="color:var(--green-800)">Find θ_ref</h4>
+            <p>Use the positive size of the trig value: θ_ref = sin⁻¹(|k|), cos⁻¹(|k|), or tan⁻¹(|k|). The reference angle is always acute unless the solution is a boundary angle.</p>
+          </div>
+          <div class="info-card">
+            <h4 style="color:var(--green-800)">Place θ_ref in the Correct Quadrants</h4>
+            <p>Use the sign of k with ASTC: positive sine in I and II, positive cosine in I and IV, positive tangent in I and III. Negative values use the opposite quadrants.</p>
+          </div>
+        </div>
+        <div class="info-card mt-2">
+          <div class="table-scroll">
+          <table class="trig-table" aria-label="Reference angle formulas by quadrant">
+            <thead>
+              <tr><th>Quadrant</th><th>Angle from θ_ref</th><th>Positive trig ratio</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>I</td><td>θ = θ_ref</td><td>sin, cos, tan</td></tr>
+              <tr><td>II</td><td>θ = 180° − θ_ref</td><td>sin</td></tr>
+              <tr><td>III</td><td>θ = 180° + θ_ref</td><td>tan</td></tr>
+              <tr><td>IV</td><td>θ = 360° − θ_ref</td><td>cos</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE EXAMPLE: Solve Equation (animated) -->
+      <div class="section section-yellow">
+        <h3 class="text-yellow-900">Interactive Example: CVA Equation Solver</h3>
+        <div class="cva-flow">
+          <div class="cva-chip active">1 Concrete: real-life meaning</div>
+          <div class="cva-chip active">2 Visual: graph/unit circle</div>
+          <div class="cva-chip active">3 Abstract: rule/notation</div>
+          <div class="cva-chip active">4 Mastery Solver</div>
+          <div class="cva-chip">5 Step Practice</div>
+          <div class="cva-chip">6 Feedback &amp; Hints</div>
+          <div class="cva-chip">7 Transfer Challenge</div>
+        </div>
+        <p class="small-text mb-2">Choose sin, cos, or tan, set the constant, then connect the unit-circle quadrants to every solution on 0° ≤ θ ≤ 360°.</p>
+        <div class="grid-2">
+          <div class="info-card">
+            <span class="mastery-tag">Concrete equation → abstract rule</span>
+            <label class="label">Trigonometric Function</label>
+            <div class="btn-group mb-2">
+              <button class="trig-btn trig-btn-y active" id="t2TrigSin" onclick="selectT2Trig('sin')">sin(θ)</button>
+              <button class="trig-btn trig-btn-y" id="t2TrigCos" onclick="selectT2Trig('cos')">cos(θ)</button>
+              <button class="trig-btn trig-btn-y" id="t2TrigTan" onclick="selectT2Trig('tan')">tan(θ)</button>
+            </div>
+            <label class="label">Value (between −1 and 1 for sin/cos)</label>
+            <input type="number" step="0.1" id="t2ValueInput" class="inp-yellow mb-2" placeholder="e.g., 0.5" oninput="resetT2Solution()">
+            <button class="btn btn-yellow" id="t2SolveBtn" onclick="showT2Solution()" disabled style="width:100%;margin-bottom:0.6rem">Show Solution</button>
+            <div id="t2FormulaBox" class="formula-box" style="display:none">
+              <strong>Reference Angle Rule</strong>
+              <span id="t2FormulaText"></span>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="step-box" id="t2Step0"><strong>1. Given Equation:</strong><p id="t2Step0Text"></p></div>
+            <div class="step-box" id="t2Step1"><strong>2. Find Reference Angle:</strong><p id="t2Step1Text"></p></div>
+            <div class="step-box" id="t2Step2"><strong>3. Use Quadrant Signs:</strong><p id="t2Step2Text"></p></div>
+            <div class="step-box" id="t2Step3"><strong>4. Calculate Solutions:</strong><p id="t2Step3Text"></p></div>
+            <div class="final-box" id="t2FinalBox">
+              <strong style="font-size:1.1rem">Final Answer:</strong>
+              <p id="t2FinalText" style="margin-top:0.4rem;font-size:1.05rem"></p>
+            </div>
+            <p style="text-align:center;color:var(--slate-500);padding:2rem 0;font-size:0.9rem" id="t2Placeholder">Select function, enter a value, and click Show Solution!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- EQUATION SOLVER WITH GRAPHS -->
+      <div class="section section-slate">
+        <h3 style="color:var(--slate-800)">Interactive Equation Solver with Visualizations</h3>
+        <div class="solver-grid">
+          <!-- Controls -->
+          <div>
+            <div class="info-card mb-2">
+              <h4 style="margin-bottom:0.75rem">Configure Equation</h4>
+              <label class="label">Trigonometric Function</label>
+              <div class="btn-group mb-2">
+                <button class="trig-btn active" id="eqTrigSin" onclick="selectEqTrig('sin')">sin(θ)</button>
+                <button class="trig-btn" id="eqTrigCos" onclick="selectEqTrig('cos')">cos(θ)</button>
+                <button class="trig-btn" id="eqTrigTan" onclick="selectEqTrig('tan')">tan(θ)</button>
+              </div>
+              <label class="label" id="eqConstLabel">Constant Value: 0.5</label>
+              <input type="range" id="eqConstSlider" class="range-purple" min="-1" max="1" step="0.1" value="0.5" oninput="updateEqConst(this.value)" style="margin-bottom:0.5rem">
+              <div class="btn-group">
+                <button class="preset-btn preset-purple" onclick="updateEqConst(0.5)">0.5</button>
+                <button class="preset-btn preset-purple" onclick="updateEqConst(0.707)">0.707</button>
+                <button class="preset-btn preset-purple" onclick="updateEqConst(0.866)">0.866</button>
+                <button class="preset-btn preset-purple" onclick="updateEqConst(-0.5)">−0.5</button>
+                <button class="preset-btn preset-purple" onclick="updateEqConst(0)">0</button>
+                <button class="preset-btn preset-purple" onclick="updateEqConst(1)">1</button>
+              </div>
+            </div>
+            <div class="eq-display mb-2">
+              <div style="color:#e9d5ff;font-size:0.85rem;margin-bottom:0.3rem">Current Equation:</div>
+              <div class="eq-text" id="eqDisplay">sin(θ) = 0.5</div>
+            </div>
+            <div class="solutions-box" id="eqSolutionsBox">
+              <p id="eqSol1">θ₁ = 30.0°</p>
+              <p id="eqSol2">θ₂ = 150.0°</p>
+            </div>
+          </div>
+          <!-- Graph -->
+          <div class="svg-center info-card">
+            <h4 style="color:var(--slate-700);margin-bottom:0.5rem">Graph View</h4>
+            <canvas id="eqGraphCanvas" width="300" height="300"></canvas>
+          </div>
+          <!-- Unit Circle -->
+          <div class="svg-center info-card">
+            <h4 style="color:var(--slate-700);margin-bottom:0.5rem">Unit Circle View</h4>
+            <canvas id="eqCircleCanvas" width="280" height="280"></canvas>
+          </div>
+        </div>
+
+        <!-- Step-by-step under graph -->
+        <div class="info-card mt-2">
+          <h4 style="margin-bottom:0.75rem">Step-by-Step Solution</h4>
+          <div id="eqStepSolution" style="color:var(--slate-700);font-size:0.9rem;line-height:1.9"></div>
+        </div>
+      </div>
+
+      <!-- WORKED EXAMPLE (Tab 2) -->
+      <div class="section section-blue">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+          <h3 class="text-blue-900" style="margin:0">Worked Example</h3>
+          <button class="btn btn-blue toggle-btn" id="t2ExampleBtn" onclick="toggleT2Example()">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            Show Solution
+          </button>
+        </div>
+        <div class="info-card">
+          <p style="font-weight:700;color:var(--slate-800)">Question: Solve 2sin(θ) − 1 = 0 for 0° ≤ θ ≤ 360°</p>
+          <div class="example-solution" id="t2ExampleSolution">
+            <p><strong>Step 1:</strong> Isolate the trig function</p>
+            <p style="margin-left:1rem">2sin(θ) = 1 → sin(θ) = 1/2 = 0.5</p>
+            <p><strong>Step 2:</strong> Find the reference angle</p>
+            <p style="margin-left:1rem">θ_ref = sin⁻¹(0.5) = <strong>30°</strong></p>
+            <p><strong>Step 3:</strong> Determine quadrants where sin is positive</p>
+            <p style="margin-left:1rem">Since 0.5 > 0, solutions are in <strong>Quadrants I and II</strong></p>
+            <p><strong>Step 4:</strong> Calculate both solutions</p>
+            <p style="margin-left:1rem">Quadrant I: θ₁ = 30°</p>
+            <p style="margin-left:1rem">Quadrant II: θ₂ = 180° − 30° = 150°</p>
+            <div class="answer-box">Answer: θ = 30° or θ = 150°</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MASTERY PRACTICE (Tab 2) -->
+      <div class="section section-orange">
+        <h3 class="text-orange-900">Mastery Solver: Trig Equation Practice</h3>
+        <p class="locked-note">Answer each step in order. Locked steps give a hint when selected and unlock only after the current step is correct.</p>
+        <div class="cva-flow">
+          <div class="cva-chip">1 Concrete: real-life meaning</div>
+          <div class="cva-chip">2 Visual: graph/unit circle</div>
+          <div class="cva-chip">3 Abstract: rule/notation</div>
+          <div class="cva-chip active">4 Mastery Solver</div>
+          <div class="cva-chip active">5 Step Practice</div>
+          <div class="cva-chip active">6 Feedback &amp; Hints</div>
+          <div class="cva-chip active">7 Transfer Challenge</div>
+        </div>
+        <div class="mastery-panel">
+          <div>
+            <div class="mastery-card mb-2" id="t2PracticeStep1">
+              <span class="mastery-tag" id="t2Step1Tag">Step 1</span>
+              <p style="font-weight:700;color:var(--slate-800);margin-bottom:0.4rem">Solve: cos(θ) = −0.5 for 0° ≤ θ ≤ 360°</p>
+              <p class="small-text mb-2">Enter the reference angle.</p>
+              <input type="text" id="t2PracticeRef" class="inp-orange mb-2" placeholder="degrees">
+              <button class="btn btn-orange" onclick="checkT2PracticeStep(1)">Check Step 1</button>
+            </div>
+            <div class="mastery-card locked mb-2" id="t2PracticeStep2" onclick="showLockedHint('t2PracticeStep2', 't2PracticeFeedback', '<strong>Hint:</strong> Complete Step 1 first. Find the reference angle before choosing quadrants.')">
+              <span class="mastery-tag" id="t2Step2Tag">Step 2</span>
+              <p class="small-text mb-2">Which quadrants contain the solutions?</p>
+              <input type="text" id="t2PracticeQuads" class="inp-orange mb-2" placeholder="e.g., II, III" disabled>
+              <button class="btn btn-orange" onclick="checkT2PracticeStep(2)" disabled>Check Step 2</button>
+            </div>
+            <div class="mastery-card locked" id="t2PracticeStep3" onclick="showLockedHint('t2PracticeStep3', 't2PracticeFeedback', '<strong>Hint:</strong> Complete Step 2 first. The final solutions unlock after the correct quadrants.')">
+              <span class="mastery-tag" id="t2Step3Tag">Step 3</span>
+              <p class="small-text mb-2">Enter all solutions in degrees, separated by commas.</p>
+              <input type="text" id="t2PracticeSolutions" class="inp-orange mb-2" placeholder="e.g., 120, 240" disabled>
+              <button class="btn btn-orange" onclick="checkT2PracticeStep(3)" disabled>Check Final Answer</button>
+            </div>
+          </div>
+          <div>
+            <div id="t2PracticeFeedback" class="diagnosis-box mb-2">Mistake diagnosis appears here after each check.</div>
+            <div class="transfer-box">
+              <h4 class="text-teal-900">Transfer Question</h4>
+              <p class="small-text mb-2">Now solve: tan(θ) = 1 for 0° ≤ θ ≤ 360°.</p>
+              <input type="text" id="t2TransferInput" class="inp-orange mb-2" placeholder="enter both solutions" disabled>
+              <button class="btn btn-green" onclick="checkT2Transfer()" disabled>Check Transfer</button>
+              <div id="t2TransferFeedback" style="display:none" class="feedback"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MISTAKE DIAGNOSIS EXAMPLE (Tab 2) -->
+      <div class="section section-red">
+        <h3 class="text-red-900">Mistake Diagnosis</h3>
+        <div class="mistake-list">
+          <div class="mistake-item"><strong>Wrong quadrants</strong><p>Use the sign of sin, cos, or tan before writing final angles.</p></div>
+          <div class="mistake-item"><strong>Reference angle confusion</strong><p>θ_ref is the acute angle to the x-axis, not necessarily a final solution.</p></div>
+          <div class="mistake-item"><strong>Missing boundary checks</strong><p>Check 0°, 90°, 180°, 270°, and 360° when k is 0, 1, −1, or tangent is undefined.</p></div>
+        </div>
+        <div class="info-card">
+          <p style="font-weight:700;color:var(--slate-800);margin-bottom:0.75rem">Diagnose this answer: 2cos(θ) + √3 = 0 gives θ = 30°, 330°.</p>
+          <div class="hint-box">The equation becomes cos(θ) = −√3/2, so the sign of cosine must decide the quadrants.</div>
+          <p class="small-text mb-2">What is the correction? Enter both correct solutions.</p>
+          <input type="text" id="t2ChallengeInput" class="inp-red mb-2" placeholder="e.g. 150, 210">
+          <button class="btn btn-red" onclick="checkT2Challenge()">Diagnose</button>
+          <div id="t2ChallengeFeedback" style="display:none" class="feedback"></div>
+          <div id="t2ChallengeSolution" style="display:none;margin-top:1rem;border-top:1px solid var(--slate-200);padding-top:1rem;font-size:0.9rem;line-height:1.9;color:var(--slate-700)">
+            <p><strong>Step 1:</strong> Isolate cos(θ)</p>
+            <p style="margin-left:1rem">2cos(θ) = −√3 → cos(θ) = −√3/2 ≈ −0.866</p>
+            <p><strong>Step 2:</strong> Find reference angle</p>
+            <p style="margin-left:1rem">θ_ref = cos⁻¹(0.866) = <strong>30°</strong></p>
+            <p><strong>Step 3:</strong> cos is negative in Quadrants II and III</p>
+            <p style="margin-left:1rem">Quadrant II: θ₁ = 180° − 30° = <strong>150°</strong></p>
+            <p style="margin-left:1rem">Quadrant III: θ₂ = 180° + 30° = <strong>210°</strong></p>
+            <div class="answer-box">Answer: θ = 150° or θ = 210°</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end card -->
+  </div><!-- end tab-1 -->
+</div><!-- end container -->
+
+<script>
+// ====== STATE ======
+let currentAngle = 45;
+let t2Trig = 'sin';
+let eqTrig = 'sin';
+let eqConst = 0.5;
+
+// ====== TAB SWITCHING ======
+function switchTab(idx) {
+  document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
+  document.querySelectorAll('.tab-panel').forEach((p, i) => p.classList.toggle('active', i === idx));
+}
+
+// ====== HELPERS ======
+function getQuadrant(deg) {
+  const n = ((deg % 360) + 360) % 360;
+  if (n < 90) return 1;
+  if (n < 180) return 2;
+  if (n < 270) return 3;
+  return 4;
+}
+function getAngleLocation(deg) {
+  const n = tidyDegree(((deg % 360) + 360) % 360);
+  if (n === 0) return 'positive x-axis';
+  if (n === 90) return 'positive y-axis';
+  if (n === 180) return 'negative x-axis';
+  if (n === 270) return 'negative y-axis';
+  return `Quadrant ${getQuadrant(deg)}`;
+}
+function getSigns(q) {
+  return [
+    { 1: '+', 2: '+', 3: '-', 4: '-' }[q],
+    { 1: '+', 2: '-', 3: '-', 4: '+' }[q],
+    { 1: '+', 2: '-', 3: '+', 4: '-' }[q],
+  ];
+}
+function toRad(d) { return d * Math.PI / 180; }
+function signFromValue(value) {
+  if (Math.abs(value) < 1e-9) return '0';
+  return value > 0 ? '+' : '-';
+}
+function getTrigSignsAt(deg) {
+  const rad = toRad(deg);
+  const sinV = Math.sin(rad);
+  const cosV = Math.cos(rad);
+  return [
+    signFromValue(sinV),
+    signFromValue(cosV),
+    Math.abs(cosV) < 1e-9 ? 'undefined' : signFromValue(sinV / cosV)
+  ];
+}
+function signClass(sign) {
+  if (sign === '+') return 'badge-green';
+  if (sign === '-') return 'badge-red';
+  return 'badge-gray';
+}
+function signWord(sign) {
+  if (sign === '+') return 'positive';
+  if (sign === '-') return 'negative';
+  if (sign === '0') return 'zero';
+  return 'undefined';
+}
+function tidyDegree(n) {
+  const rounded = Math.round(n * 10) / 10;
+  return Object.is(rounded, -0) ? 0 : rounded;
+}
+function uniqueAngles(values) {
+  return values
+    .map(tidyDegree)
+    .filter(v => v >= 0 && v <= 360)
+    .sort((a, b) => a - b)
+    .filter((v, i, arr) => i === 0 || Math.abs(v - arr[i - 1]) > 0.05);
+}
+function solveTrigEquation(trig, val) {
+  const v = Number(val);
+  const eps = 1e-9;
+  let sols = [];
+
+  if (trig === 'sin') {
+    if (v < -1 - eps || v > 1 + eps) return null;
+    if (Math.abs(v) < eps) sols = [0, 180, 360];
+    else if (Math.abs(v - 1) < eps) sols = [90];
+    else if (Math.abs(v + 1) < eps) sols = [270];
+    else {
+      const ref = Math.asin(Math.abs(v)) * 180 / Math.PI;
+      sols = v > 0 ? [ref, 180 - ref] : [180 + ref, 360 - ref];
+    }
+  } else if (trig === 'cos') {
+    if (v < -1 - eps || v > 1 + eps) return null;
+    if (Math.abs(v - 1) < eps) sols = [0, 360];
+    else if (Math.abs(v + 1) < eps) sols = [180];
+    else if (Math.abs(v) < eps) sols = [90, 270];
+    else {
+      const ref = Math.acos(Math.abs(v)) * 180 / Math.PI;
+      sols = v > 0 ? [ref, 360 - ref] : [180 - ref, 180 + ref];
+    }
+  } else {
+    if (Math.abs(v) < eps) sols = [0, 180, 360];
+    else {
+      const ref = Math.atan(Math.abs(v)) * 180 / Math.PI;
+      sols = v > 0 ? [ref, 180 + ref] : [180 - ref, 360 - ref];
+    }
+  }
+
+  return uniqueAngles(sols);
+}
+function getReferenceAngle(trig, val) {
+  const v = Math.abs(Number(val));
+  if (trig === 'sin') return Math.asin(Math.min(1, v)) * 180 / Math.PI;
+  if (trig === 'cos') return Math.acos(Math.min(1, v)) * 180 / Math.PI;
+  return Math.atan(v) * 180 / Math.PI;
+}
+function getQuadrantText(trig, val) {
+  const v = Number(val);
+  if (Math.abs(v) < 1e-9) return 'axis angles, because the value is 0';
+  if (trig === 'sin') return v > 0 ? 'Quadrants I and II' : 'Quadrants III and IV';
+  if (trig === 'cos') return v > 0 ? 'Quadrants I and IV' : 'Quadrants II and III';
+  return v > 0 ? 'Quadrants I and III' : 'Quadrants II and IV';
+}
+function formatAngleList(solutions) {
+  return solutions.map(sol => `${tidyDegree(sol).toFixed(1)}°`).join(' or ');
+}
+
+// ====== DRAW TRIG GRAPH ======
+function drawTrigGraph(canvas, type, currentAngle, color) {
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+  ctx.fillStyle = '#f8fafc'; ctx.fillRect(0, 0, W, H);
+
+  const ox = 30, oy = H / 2, w = W - 40, h = H * 0.38;
+
+  // grid lines
+  ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 0.8;
+  ctx.beginPath(); ctx.moveTo(ox, oy - h); ctx.lineTo(ox + w, oy - h); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(ox, oy + h); ctx.lineTo(ox + w, oy + h); ctx.stroke();
+  ctx.setLineDash([3,3]);
+  ctx.beginPath(); ctx.moveTo(ox, oy - h); ctx.lineTo(ox, oy - h); ctx.stroke();
+  ctx.setLineDash([]);
+
+  // axes
+  ctx.strokeStyle = '#64748b'; ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(ox, oy - h - 5); ctx.lineTo(ox, oy + h + 5); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(ox + w + 5, oy); ctx.stroke();
+
+  // labels
+  ctx.fillStyle = '#64748b'; ctx.font = '10px Nunito';
+  ctx.fillText('1', 8, oy - h + 4);
+  ctx.fillText('-1', 3, oy + h + 4);
+  if (type === 'tan') { ctx.fillText('3', 8, oy - h + 4); ctx.fillText('-3', 3, oy + h + 4); }
+
+  // function curve
+  ctx.strokeStyle = color; ctx.lineWidth = 2.5;
+  if (type === 'tan') {
+    // draw two segments
+    [[5, 170], [185, 350]].forEach(([start, end]) => {
+      ctx.beginPath();
+      let first = true;
+      for (let deg = start; deg <= end; deg++) {
+        const x = ox + (deg / 360) * w;
+        const tv = Math.tan(toRad(deg));
+        const clamped = Math.max(-3, Math.min(3, tv));
+        const y = oy - clamped * (h / 3);
+        if (first) { ctx.moveTo(x, y); first = false; } else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    });
+  } else {
+    ctx.beginPath();
+    for (let deg = 0; deg <= 360; deg++) {
+      const x = ox + (deg / 360) * w;
+      const val = type === 'sin' ? Math.sin(toRad(deg)) : Math.cos(toRad(deg));
+      const y = oy - val * h;
+      deg === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+  }
+
+  // label
+  ctx.fillStyle = color; ctx.font = 'bold 11px Nunito';
+  ctx.fillText(`y = ${type}(θ)`, ox + 5, 14);
+
+  // red vertical marker
+  const mx = ox + (currentAngle / 360) * w;
+  ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 1.5; ctx.setLineDash([3, 3]);
+  ctx.beginPath(); ctx.moveTo(mx, oy - h); ctx.lineTo(mx, oy + h); ctx.stroke();
+  ctx.setLineDash([]);
+
+  // dot on curve
+  let dotY;
+  if (type === 'sin') dotY = oy - Math.sin(toRad(currentAngle)) * h;
+  else if (type === 'cos') dotY = oy - Math.cos(toRad(currentAngle)) * h;
+  else {
+    const tv = Math.tan(toRad(currentAngle));
+    if (Math.abs(tv) < 20) dotY = oy - Math.max(-3, Math.min(3, tv)) * (h / 3);
+  }
+  if (dotY !== undefined) {
+    ctx.fillStyle = color;
+    ctx.beginPath(); ctx.arc(mx, dotY, 4, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5; ctx.stroke();
+  }
+
+  // tan asymptotes
+  if (type === 'tan') {
+    ctx.strokeStyle = '#f9731650'; ctx.lineWidth = 1; ctx.setLineDash([4, 3]);
+    [90, 270].forEach(a => {
+      const ax = ox + (a / 360) * w;
+      ctx.beginPath(); ctx.moveTo(ax, oy - h); ctx.lineTo(ax, oy + h); ctx.stroke();
+    });
+    ctx.setLineDash([]);
+  }
+}
+
+// ====== DRAW UNIT CIRCLE 1 ======
+function drawUnitCircle1(canvas, angleDeg) {
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+  const cx = W / 2, cy = H / 2, r = 100;
+  const rad = toRad(angleDeg);
+
+  // axes
+  ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(20, cy); ctx.lineTo(W - 20, cy); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cx, 20); ctx.lineTo(cx, H - 20); ctx.stroke();
+
+  // circle
+  ctx.strokeStyle = '#3b82f6'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
+
+  // quadrant labels
+  const labels = [
+    { x: 55, y: -50, text: 'I: All +', color: '#16a34a' },
+    { x: -80, y: -50, text: 'II: Sin +', color: '#2563eb' },
+    { x: -80, y: 60, text: 'III: Tan +', color: '#f97316' },
+    { x: 45, y: 60, text: 'IV: Cos +', color: '#a855f7' },
+  ];
+  labels.forEach(l => {
+    ctx.fillStyle = l.color; ctx.font = 'bold 11px Nunito';
+    ctx.fillText(l.text, cx + l.x, cy + l.y);
+  });
+
+  // point on circle
+  const px = cx + r * Math.cos(rad);
+  const py = cy - r * Math.sin(rad);
+
+  // dashed projection lines
+  ctx.setLineDash([4, 3]);
+  ctx.strokeStyle = '#10b981'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(px, cy); ctx.lineTo(px, py); ctx.stroke();
+  ctx.strokeStyle = '#3b82f6';
+  ctx.beginPath(); ctx.moveTo(cx, py); ctx.lineTo(px, py); ctx.stroke();
+  ctx.setLineDash([]);
+
+  // radius line
+  ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 3;
+  ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(px, py); ctx.stroke();
+
+  // angle arc
+  ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.arc(cx, cy, 28, 0, -rad, rad > 0);
+  ctx.stroke();
+
+  // dot
+  ctx.fillStyle = '#ef4444';
+  ctx.beginPath(); ctx.arc(px, py, 6, 0, Math.PI * 2); ctx.fill();
+
+  // sin/cos labels
+  ctx.fillStyle = '#10b981'; ctx.font = 'bold 10px Nunito';
+  ctx.fillText('sin', px + 5, (cy + py) / 2);
+  ctx.fillStyle = '#3b82f6';
+  ctx.fillText('cos', (cx + px) / 2 - 10, cy + 14);
+}
+
+// ====== UPDATE ANGLE (Tab 1) ======
+function updateAngle(val) {
+  currentAngle = Number(val);
+  document.getElementById('angleSlider').value = currentAngle;
+  document.getElementById('angleLabel').textContent = `Angle: ${currentAngle}° (${getAngleLocation(currentAngle)})`;
+
+  const rad = toRad(currentAngle);
+  const sinV = Math.sin(rad), cosV = Math.cos(rad), tanV = Math.tan(rad);
+  const [sSign, cSign, tSign] = getTrigSignsAt(currentAngle);
+
+  drawTrigGraph(document.getElementById('sinCanvas'), 'sin', currentAngle, '#10b981');
+  drawTrigGraph(document.getElementById('cosCanvas'), 'cos', currentAngle, '#3b82f6');
+  drawTrigGraph(document.getElementById('tanCanvas'), 'tan', currentAngle, '#f97316');
+  drawUnitCircle1(document.getElementById('unitCircle1'), currentAngle);
+
+  const sinBadge = document.getElementById('sinBadge');
+  sinBadge.textContent = `sin(${currentAngle}°) = ${sinV.toFixed(3)} (${sSign})`;
+  sinBadge.className = 'badge mt-1 ' + signClass(sSign);
+
+  const cosBadge = document.getElementById('cosBadge');
+  cosBadge.textContent = `cos(${currentAngle}°) = ${cosV.toFixed(3)} (${cSign})`;
+  cosBadge.className = 'badge mt-1 ' + signClass(cSign);
+
+  const tanBadge = document.getElementById('tanBadge');
+  const tanTxt = tSign === 'undefined' ? 'undefined' : tanV.toFixed(3);
+  tanBadge.textContent = `tan(${currentAngle}°) = ${tanTxt} (${tSign})`;
+  tanBadge.className = 'badge mt-1 ' + signClass(tSign);
+}
+
+// ====== TAB 1: Interactive Signs ======
+document.getElementById('t1AngleInput').addEventListener('input', function() {
+  const v = this.value.trim();
+  document.getElementById('t1SolveBtn').disabled = !v || isNaN(Number(v));
+  if (v && !isNaN(Number(v))) {
+    document.getElementById('t1FormulaBox').style.display = 'block';
+  } else {
+    document.getElementById('t1FormulaBox').style.display = 'none';
+  }
+});
+
+function resetT1Solution() {
+  ['t1Step0','t1Step1','t1Step2','t1FinalBox'].forEach(id => document.getElementById(id).classList.remove('visible'));
+  document.getElementById('t1Placeholder').style.display = 'block';
+}
+
+function showT1Solution() {
+  const angleDeg = Number(document.getElementById('t1AngleInput').value);
+  if (isNaN(angleDeg)) return;
+  const q = getQuadrant(angleDeg);
+  const [sSign, cSign, tSign] = getTrigSignsAt(angleDeg);
+  const location = getAngleLocation(angleDeg);
+  const locationPhrase = location.startsWith('Quadrant') ? `in ${location}` : `on the ${location}`;
+
+  document.getElementById('t1Step0Text').textContent = `${angleDeg}° is ${locationPhrase}`;
+  const astc = {
+    1: 'The point is right and up, so x and y are positive.',
+    2: 'The point is left and up, so y is positive but x is negative.',
+    3: 'The point is left and down, so x and y are negative.',
+    4: 'The point is right and down, so x is positive but y is negative.'
+  };
+  const axisText = {
+    'positive x-axis': 'The point is (1, 0): cos is positive, sin is zero, and tan is zero.',
+    'positive y-axis': 'The point is (0, 1): sin is positive, cos is zero, and tan is undefined.',
+    'negative x-axis': 'The point is (−1, 0): cos is negative, sin is zero, and tan is zero.',
+    'negative y-axis': 'The point is (0, −1): sin is negative, cos is zero, and tan is undefined.'
+  };
+  document.getElementById('t1Step1Text').textContent = axisText[location] || astc[q];
+
+  const colorSign = (s, label, a) => `<span style="color:${s==='+' ? '#16a34a' : s==='-' ? '#dc2626' : '#475569'};font-weight:700">${label}(${a}°) is ${signWord(s)} (${s})</span>`;
+  document.getElementById('t1Step2Sin').innerHTML = colorSign(sSign, 'sin', angleDeg);
+  document.getElementById('t1Step2Cos').innerHTML = colorSign(cSign, 'cos', angleDeg);
+  document.getElementById('t1Step2Tan').innerHTML = colorSign(tSign, 'tan', angleDeg);
+  document.getElementById('t1FinalText').textContent = `sin: ${sSign}, cos: ${cSign}, tan: ${tSign}`;
+
+  document.getElementById('t1Placeholder').style.display = 'none';
+
+  const steps = ['t1Step0','t1Step1','t1Step2','t1FinalBox'];
+  steps.forEach((id, i) => setTimeout(() => document.getElementById(id).classList.add('visible'), i * 500));
+}
+
+// ====== MASTERY CHECK HELPERS ======
+function normaliseAnswer(value) {
+  return value.toLowerCase().replace(/[−–—]/g, '-').replace(/\s+/g, ' ').trim();
+}
+function parseQuadrants(value) {
+  const tokens = normaliseAnswer(value)
+    .replace(/quadrants?/g, '')
+    .replace(/\bq/g, '')
+    .match(/\biv|iii|ii|i|4|3|2|1\b/g) || [];
+  const map = { i: 1, ii: 2, iii: 3, iv: 4, '1': 1, '2': 2, '3': 3, '4': 4 };
+  return [...new Set(tokens.map(t => map[t]).filter(Boolean))].sort((a, b) => a - b);
+}
+function parseNumbers(value) {
+  return (normaliseAnswer(value).match(/-?\d+(\.\d+)?/g) || []).map(Number).sort((a, b) => a - b);
+}
+function matchesNumbers(actual, expected, tolerance = 0.6) {
+  return actual.length === expected.length && actual.every((n, i) => Math.abs(n - expected[i]) <= tolerance);
+}
+function answerHasSigns(value, expected) {
+  const text = normaliseAnswer(value).replace(/positive/g, '+').replace(/negative/g, '-');
+  const named = ['sin', 'cos', 'tan'].map(name => {
+    const match = text.match(new RegExp(`${name}[^+\\-]*([+\\-])`));
+    return match ? match[1] : null;
+  });
+  const signs = named.every(Boolean) ? named : (text.match(/[+\-]/g) || []).slice(0, 3);
+  return signs.length === 3 && signs.every((s, i) => s === expected[i]);
+}
+function markPracticeStep(cardId, tagId, nextCardId) {
+  document.getElementById(cardId).classList.remove('locked');
+  document.getElementById(tagId).classList.add('done');
+  document.getElementById(tagId).textContent = 'Mastered';
+  if (nextCardId) {
+    const nextCard = document.getElementById(nextCardId);
+    nextCard.classList.remove('locked');
+    nextCard.querySelectorAll('input, button').forEach(el => el.disabled = false);
+  }
+}
+function setDiagnosis(id, ok, message) {
+  const box = document.getElementById(id);
+  box.className = ok ? 'feedback feedback-ok mb-2' : 'diagnosis-box mb-2';
+  box.innerHTML = ok ? `<span class="feedback-icon">✓</span><p>${message}</p>` : message;
+}
+function isMasteryLocked(cardId) {
+  return document.getElementById(cardId).classList.contains('locked');
+}
+function showLockedHint(cardId, feedbackId, message) {
+  if (isMasteryLocked(cardId)) setDiagnosis(feedbackId, false, message);
+}
+function unlockControls(ids) {
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.disabled = false;
+  });
+}
+
+// ====== TAB 1: Mastery Practice ======
+function checkT1PracticeStep(step) {
+  if (step === 2 && isMasteryLocked('t1PracticeStep2')) {
+    setDiagnosis('t1PracticeFeedback', false, '<strong>Hint:</strong> Complete Step 1 first. The solver unlocks one step at a time.');
+    return;
+  }
+  if (step === 3 && isMasteryLocked('t1PracticeStep3')) {
+    setDiagnosis('t1PracticeFeedback', false, '<strong>Hint:</strong> Complete Step 2 first. The solver unlocks the final signs after the positive function is correct.');
+    return;
+  }
+  if (step === 1) {
+    const qs = parseQuadrants(document.getElementById('t1PracticeQuadrant').value);
+    if (matchesNumbers(qs, [4], 0)) {
+      markPracticeStep('t1PracticeStep1', 't1Step1Tag', 't1PracticeStep2');
+      setDiagnosis('t1PracticeFeedback', true, 'Correct. 315° is between 270° and 360°, so it is in Quadrant IV.');
+    } else {
+      setDiagnosis('t1PracticeFeedback', false, '<strong>Diagnosis:</strong> Check the interval first. Quadrant IV is the last quarter-turn, from 270° to 360°.');
+    }
+  }
+  if (step === 2) {
+    const ans = normaliseAnswer(document.getElementById('t1PracticePositive').value);
+    if (ans === 'cos' || ans === 'cosine') {
+      markPracticeStep('t1PracticeStep2', 't1Step2Tag', 't1PracticeStep3');
+      setDiagnosis('t1PracticeFeedback', true, 'Correct. In Quadrant IV, cosine is positive because the x-coordinate is positive.');
+    } else {
+      setDiagnosis('t1PracticeFeedback', false, '<strong>Diagnosis:</strong> Use ASTC in order: QI All, QII Sin, QIII Tan, QIV Cos. For 315°, only cosine is positive.');
+    }
+  }
+  if (step === 3) {
+    if (answerHasSigns(document.getElementById('t1PracticeSigns').value, ['-', '+', '-'])) {
+      markPracticeStep('t1PracticeStep3', 't1Step3Tag');
+      unlockControls(['t1TransferInput']);
+      document.querySelector('#t1TransferInput + button').disabled = false;
+      setDiagnosis('t1PracticeFeedback', true, 'Mastered. For 315°: sin is negative, cos is positive, and tan is negative.');
+    } else {
+      setDiagnosis('t1PracticeFeedback', false, '<strong>Diagnosis:</strong> You may have copied the positive function but missed the two negatives. QIV means sin(−), cos(+), tan(−).');
+    }
+  }
+}
+
+function checkT1Transfer() {
+  const fb = document.getElementById('t1TransferFeedback');
+  fb.style.display = 'flex';
+  if (document.getElementById('t1TransferInput').disabled) {
+    fb.className = 'feedback feedback-err';
+    fb.innerHTML = '<span class="feedback-icon">✗</span><p>Complete the mastery solver first. Transfer unlocks after Step 3 is mastered.</p>';
+    return;
+  }
+  if (answerHasSigns(document.getElementById('t1TransferInput').value, ['+', '-', '-'])) {
+    fb.className = 'feedback feedback-ok';
+    fb.innerHTML = '<span class="feedback-icon">✓</span><p>Transfer complete. 150° is in Quadrant II, so sin(+), cos(−), tan(−).</p>';
+  } else {
+    fb.className = 'feedback feedback-err';
+    fb.innerHTML = '<span class="feedback-icon">✗</span><p>Try the quadrant first: 150° is between 90° and 180°, so Quadrant II. In QII only sine is positive.</p>';
+  }
+}
+
+// ====== TAB 1: Worked Example Toggle ======
+function toggleT1Example() {
+  const sol = document.getElementById('t1ExampleSolution');
+  const btn = document.getElementById('t1ExampleBtn');
+  const showing = sol.classList.toggle('show');
+  btn.classList.toggle('open', showing);
+  btn.querySelector('svg').setAttribute('style', showing ? 'transform:rotate(180deg)' : '');
+  btn.childNodes[btn.childNodes.length - 1].textContent = showing ? ' Hide Solution' : ' Show Solution';
+}
+
+// ====== TAB 2: Trig select (animated solver) ======
+function selectT2Trig(t) {
+  t2Trig = t;
+  ['sin','cos','tan'].forEach(s => {
+    document.getElementById('t2Trig'+s.charAt(0).toUpperCase()+s.slice(1)).classList.toggle('active', s === t);
+  });
+  resetT2Solution();
+}
+
+document.getElementById('t2ValueInput').addEventListener('input', function() {
+  const v = this.value.trim();
+  const valid = v && !isNaN(Number(v));
+  document.getElementById('t2SolveBtn').disabled = !valid;
+  if (valid) {
+    document.getElementById('t2FormulaBox').style.display = 'block';
+    document.getElementById('t2FormulaText').textContent = `θ_ref = ${t2Trig}⁻¹(|${v}|)`;
+  } else {
+    document.getElementById('t2FormulaBox').style.display = 'none';
+  }
+});
+
+function resetT2Solution() {
+  ['t2Step0','t2Step1','t2Step2','t2Step3','t2FinalBox'].forEach(id => document.getElementById(id).classList.remove('visible'));
+  document.getElementById('t2Placeholder').style.display = 'block';
+}
+
+function solveForT2(trig, val) {
+  return solveTrigEquation(trig, val);
+}
+
+function showT2Solution() {
+  const val = document.getElementById('t2ValueInput').value;
+  const sols = solveForT2(t2Trig, val);
+  if (!sols) { alert('Invalid value for this function!'); return; }
+
+  const vn = Number(val);
+  document.getElementById('t2Step0Text').textContent = `${t2Trig}(θ) = ${val}`;
+
+  const refAngle = getReferenceAngle(t2Trig, val).toFixed(1);
+  document.getElementById('t2Step1Text').innerHTML = `θ_ref = ${t2Trig}⁻¹(|${val}|) = <strong style="color:#7c3aed">${refAngle}°</strong>`;
+
+  const signText = Math.abs(vn) < 1e-9 ? 'Zero value' : `${vn > 0 ? 'Positive' : 'Negative'} ${t2Trig}`;
+  document.getElementById('t2Step2Text').innerHTML = `${signText} → solutions in <strong style="color:#2563eb">${getQuadrantText(t2Trig, vn)}</strong>`;
+
+  document.getElementById('t2Step3Text').innerHTML = sols.map((sol, i) => `Solution ${i + 1}: θ = <strong style="color:#16a34a">${sol.toFixed(1)}°</strong>`).join('<br>');
+  document.getElementById('t2FinalText').textContent = `θ = ${formatAngleList(sols)}`;
+
+  document.getElementById('t2Placeholder').style.display = 'none';
+  ['t2Step0','t2Step1','t2Step2','t2Step3','t2FinalBox'].forEach((id, i) => {
+    setTimeout(() => document.getElementById(id).classList.add('visible'), i * 600);
+  });
+}
+
+// ====== EQUATION SOLVER ======
+function selectEqTrig(t) {
+  eqTrig = t;
+  ['sin','cos','tan'].forEach(s => {
+    document.getElementById('eqTrig'+s.charAt(0).toUpperCase()+s.slice(1)).classList.toggle('active', s === t);
+  });
+  updateEqVisuals();
+}
+
+function updateEqConst(val) {
+  eqConst = Number(val);
+  document.getElementById('eqConstSlider').value = eqConst;
+  document.getElementById('eqConstLabel').textContent = `Constant Value: ${eqConst}`;
+  updateEqVisuals();
+}
+
+function solveEq(trig, val) {
+  return solveTrigEquation(trig, val);
+}
+
+function drawEqGraph(canvas, trig, constant, solutions) {
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+  ctx.fillStyle = '#f8fafc'; ctx.fillRect(0, 0, W, H);
+
+  const ox = 40, oy = H / 2, w = W - 60, h = 100;
+
+  // grid
+  ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 0.8;
+  ctx.beginPath(); ctx.moveTo(ox, oy - h); ctx.lineTo(ox + w, oy - h); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(ox, oy + h); ctx.lineTo(ox + w, oy + h); ctx.stroke();
+
+  // axes
+  ctx.strokeStyle = '#64748b'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(ox, oy - h - 10); ctx.lineTo(ox, oy + h + 10); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(ox + w + 10, oy); ctx.stroke();
+
+  // labels
+  ctx.fillStyle = '#64748b'; ctx.font = '10px Nunito';
+  ctx.fillText('θ', ox + w + 12, oy + 4);
+  ctx.fillText('y', ox - 18, oy - h - 5);
+  ctx.fillText('0', ox - 15, oy + 5);
+  ctx.fillText('90', ox + w * 0.25 - 10, oy + 14);
+  ctx.fillText('180', ox + w * 0.5 - 10, oy + 14);
+  ctx.fillText('270', ox + w * 0.75 - 10, oy + 14);
+  ctx.fillText('360', ox + w - 10, oy + 14);
+  ctx.fillText('1', ox - 16, oy - h + 4);
+  ctx.fillText('-1', ox - 18, oy + h + 4);
+
+  // function
+  ctx.strokeStyle = '#8b5cf6'; ctx.lineWidth = 2.5;
+  if (trig === 'tan') {
+    [[5,170],[185,350]].forEach(([s,e]) => {
+      ctx.beginPath();
+      let first = true;
+      for (let d = s; d <= e; d++) {
+        const x = ox + (d / 360) * w;
+        const tv = Math.max(-3, Math.min(3, Math.tan(toRad(d))));
+        const y = oy - tv * (h / 3);
+        if (first) { ctx.moveTo(x, y); first = false; } else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    });
+  } else {
+    ctx.beginPath();
+    for (let d = 0; d <= 360; d++) {
+      const x = ox + (d / 360) * w;
+      const val = trig === 'sin' ? Math.sin(toRad(d)) : Math.cos(toRad(d));
+      const y = oy - val * h;
+      d === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+  }
+
+  // label
+  ctx.fillStyle = '#8b5cf6'; ctx.font = 'bold 12px Nunito';
+  ctx.fillText(`y = ${trig}(θ)`, ox + 5, 20);
+
+  // y = constant line
+  if (constant >= -1 && constant <= 1) {
+    const cy2 = oy - constant * h;
+    ctx.strokeStyle = '#f59e0b'; ctx.lineWidth = 2; ctx.setLineDash([6, 3]);
+    ctx.beginPath(); ctx.moveTo(ox, cy2); ctx.lineTo(ox + w, cy2); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#f59e0b'; ctx.font = 'bold 10px Nunito';
+    ctx.fillText(`y=${constant}`, ox + w + 2, cy2 + 4);
+  }
+
+  // solutions
+  if (solutions) {
+    solutions.forEach(sol => {
+      const x = ox + (sol / 360) * w;
+      const y = oy - constant * h;
+      ctx.strokeStyle = '#10b981'; ctx.lineWidth = 1.5; ctx.setLineDash([4, 4]); ctx.globalAlpha = 0.6;
+      ctx.beginPath(); ctx.moveTo(x, oy - h); ctx.lineTo(x, oy + h); ctx.stroke();
+      ctx.setLineDash([]); ctx.globalAlpha = 1;
+      ctx.fillStyle = '#10b981';
+      ctx.beginPath(); ctx.arc(x, y, 6, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
+      ctx.fillStyle = '#10b981'; ctx.font = 'bold 11px Nunito'; ctx.textAlign = 'center';
+      ctx.fillText(`${sol.toFixed(1)}°`, x, 14);
+      ctx.textAlign = 'left';
+    });
+  }
+}
+
+function drawEqCircle(canvas, solutions, trig) {
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+  const cx = W / 2, cy = H / 2, r = 100;
+
+  ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(20, cy); ctx.lineTo(W - 20, cy); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cx, 20); ctx.lineTo(cx, H - 20); ctx.stroke();
+
+  ctx.strokeStyle = '#8b5cf6'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
+
+  const qlabels = [
+    { x: 50, y: -50, text: 'I', color: '#10b981' },
+    { x: -60, y: -50, text: 'II', color: '#3b82f6' },
+    { x: -60, y: 60, text: 'III', color: '#f97316' },
+    { x: 50, y: 60, text: 'IV', color: '#a855f7' },
+  ];
+  qlabels.forEach(l => {
+    ctx.fillStyle = l.color; ctx.font = 'bold 11px Nunito';
+    ctx.fillText(l.text, cx + l.x, cy + l.y);
+  });
+
+  if (solutions) {
+    solutions.forEach((sol, i) => {
+      const rad = toRad(sol);
+      const px = cx + r * Math.cos(rad);
+      const py = cy - r * Math.sin(rad);
+      ctx.strokeStyle = '#10b981'; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(px, py); ctx.stroke();
+      ctx.fillStyle = '#10b981';
+      ctx.beginPath(); ctx.arc(px, py, 5, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
+      ctx.fillStyle = '#10b981'; ctx.font = 'bold 10px Nunito'; ctx.textAlign = 'center';
+      const lx = cx + 115 * Math.cos(rad);
+      const ly = cy - 115 * Math.sin(rad);
+      ctx.fillText(`${sol.toFixed(1)}°`, lx, ly);
+      ctx.textAlign = 'left';
+    });
+  }
+}
+
+function updateEqVisuals() {
+  document.getElementById('eqDisplay').textContent = `${eqTrig}(θ) = ${eqConst}`;
+  const sols = solveEq(eqTrig, eqConst);
+
+  if (sols) {
+    document.getElementById('eqSolutionsBox').innerHTML = sols.map((sol, i) => `<p>θ<sub>${i + 1}</sub> = ${sol.toFixed(1)}°</p>`).join('');
+    document.getElementById('eqSolutionsBox').style.display = 'block';
+  } else {
+    document.getElementById('eqSolutionsBox').style.display = 'none';
+  }
+
+  drawEqGraph(document.getElementById('eqGraphCanvas'), eqTrig, eqConst, sols);
+  drawEqCircle(document.getElementById('eqCircleCanvas'), sols, eqTrig);
+
+  // step-by-step
+  const stepDiv = document.getElementById('eqStepSolution');
+  if (sols) {
+    const signWord = Math.abs(Number(eqConst)) < 1e-9 ? 'zero' : Number(eqConst) > 0 ? 'positive' : 'negative';
+    const qText = getQuadrantText(eqTrig, eqConst);
+    const refAngle = getReferenceAngle(eqTrig, eqConst);
+
+    stepDiv.innerHTML = `
+      <p><strong>Step 1:</strong> Given equation: ${eqTrig}(θ) = ${eqConst}</p>
+      <p><strong>Step 2:</strong> Find reference angle: θ_ref = ${eqTrig}⁻¹(${Math.abs(eqConst).toFixed(3)}) = <strong>${refAngle.toFixed(1)}°</strong></p>
+      <p><strong>Step 3:</strong> The value ${eqConst} is ${signWord} → solutions in <strong>${qText}</strong></p>
+      <p><strong>Step 4:</strong> Both intersection points are shown on the graph and circle.</p>
+      <div class="solutions-box mt-2">${sols.map((sol, i) => `<p>θ<sub>${i + 1}</sub> = ${sol.toFixed(1)}°</p>`).join('')}</div>
+    `;
+  } else {
+    stepDiv.innerHTML = '<p style="color:var(--slate-500)">No real solutions for this value.</p>';
+  }
+}
+
+// ====== TAB 2: Mastery Practice & Diagnosis ======
+function checkT2PracticeStep(step) {
+  if (step === 2 && isMasteryLocked('t2PracticeStep2')) {
+    setDiagnosis('t2PracticeFeedback', false, '<strong>Hint:</strong> Complete Step 1 first. Find the reference angle before choosing quadrants.');
+    return;
+  }
+  if (step === 3 && isMasteryLocked('t2PracticeStep3')) {
+    setDiagnosis('t2PracticeFeedback', false, '<strong>Hint:</strong> Complete Step 2 first. The final solutions unlock after the correct quadrants.');
+    return;
+  }
+  if (step === 1) {
+    const nums = parseNumbers(document.getElementById('t2PracticeRef').value);
+    if (matchesNumbers(nums, [60])) {
+      markPracticeStep('t2PracticeStep1', 't2Step1Tag', 't2PracticeStep2');
+      setDiagnosis('t2PracticeFeedback', true, 'Correct. cos⁻¹(0.5) gives the reference angle 60°.');
+    } else if (matchesNumbers(nums, [120]) || matchesNumbers(nums, [240])) {
+      setDiagnosis('t2PracticeFeedback', false, '<strong>Diagnosis:</strong> That is a final solution, not the reference angle. The reference angle is always the acute angle to the x-axis.');
+    } else {
+      setDiagnosis('t2PracticeFeedback', false, '<strong>Diagnosis:</strong> Use the positive size of the ratio for the reference angle: cos⁻¹(0.5) = 60°.');
+    }
+  }
+  if (step === 2) {
+    const qs = parseQuadrants(document.getElementById('t2PracticeQuads').value);
+    if (matchesNumbers(qs, [2, 3], 0)) {
+      markPracticeStep('t2PracticeStep2', 't2Step2Tag', 't2PracticeStep3');
+      setDiagnosis('t2PracticeFeedback', true, 'Correct. Cosine is negative where the x-coordinate is negative: Quadrants II and III.');
+    } else if (matchesNumbers(qs, [1, 4], 0)) {
+      setDiagnosis('t2PracticeFeedback', false, '<strong>Diagnosis:</strong> Quadrants I and IV are for positive cosine. This equation has cos(θ) = −0.5.');
+    } else {
+      setDiagnosis('t2PracticeFeedback', false, '<strong>Diagnosis:</strong> Decide from the sign first: negative cosine means Quadrants II and III.');
+    }
+  }
+  if (step === 3) {
+    const nums = parseNumbers(document.getElementById('t2PracticeSolutions').value);
+    if (matchesNumbers(nums, [120, 240])) {
+      markPracticeStep('t2PracticeStep3', 't2Step3Tag');
+      unlockControls(['t2TransferInput']);
+      document.querySelector('#t2TransferInput + button').disabled = false;
+      setDiagnosis('t2PracticeFeedback', true, 'Mastered. QII gives 180° − 60° = 120°, and QIII gives 180° + 60° = 240°.');
+    } else if (nums.length === 1) {
+      setDiagnosis('t2PracticeFeedback', false, '<strong>Diagnosis:</strong> You found one solution, but the full interval 0° ≤ θ ≤ 360° can give two angles for this equation.');
+    } else if (matchesNumbers(nums, [60, 300])) {
+      setDiagnosis('t2PracticeFeedback', false, '<strong>Diagnosis:</strong> Those are the positive-cosine angles. Negative cosine must land in Quadrants II and III.');
+    } else {
+      setDiagnosis('t2PracticeFeedback', false, '<strong>Diagnosis:</strong> Combine the 60° reference angle with QII and QIII: 180° − 60° and 180° + 60°.');
+    }
+  }
+}
+
+function checkT2Transfer() {
+  const fb = document.getElementById('t2TransferFeedback');
+  const nums = parseNumbers(document.getElementById('t2TransferInput').value);
+  fb.style.display = 'flex';
+  if (document.getElementById('t2TransferInput').disabled) {
+    fb.className = 'feedback feedback-err';
+    fb.innerHTML = '<span class="feedback-icon">✗</span><p>Complete the mastery solver first. Transfer unlocks after the final solutions are mastered.</p>';
+    return;
+  }
+  if (matchesNumbers(nums, [45, 225])) {
+    fb.className = 'feedback feedback-ok';
+    fb.innerHTML = '<span class="feedback-icon">✓</span><p>Transfer complete. tan is positive in Quadrants I and III, so θ = 45° or 225°.</p>';
+  } else {
+    fb.className = 'feedback feedback-err';
+    fb.innerHTML = '<span class="feedback-icon">✗</span><p>Use tan⁻¹(1) = 45°, then place positive tangent in Quadrants I and III.</p>';
+  }
+}
+
+function checkT2Challenge() {
+  const parts = document.getElementById('t2ChallengeInput').value.split(',').map(s => Number(s.trim().replace(/[°\s]/g, '')));
+  const sorted = [...parts].sort((a, b) => a - b);
+  const fb = document.getElementById('t2ChallengeFeedback');
+  fb.style.display = 'flex';
+  if (sorted.length === 2 && Math.abs(sorted[0] - 150) < 1 && Math.abs(sorted[1] - 210) < 1) {
+    fb.className = 'feedback feedback-ok';
+    fb.innerHTML = '<span class="feedback-icon">✓</span><p>Correct diagnosis. The mistaken answer used positive-cosine quadrants. Negative cosine belongs in QII and QIII.</p>';
+    document.getElementById('t2ChallengeSolution').style.display = 'block';
+  } else {
+    fb.className = 'feedback feedback-err';
+    fb.innerHTML = '<span class="feedback-icon">✗</span><p>Not quite. The error is a quadrant-sign error: cos(θ) is negative, so choose the Quadrants II and III angles with a 30° reference angle.</p>';
+    document.getElementById('t2ChallengeSolution').style.display = 'none';
+  }
+}
+
+// ====== TAB 2: Worked Example Toggle ======
+function toggleT2Example() {
+  const sol = document.getElementById('t2ExampleSolution');
+  const btn = document.getElementById('t2ExampleBtn');
+  const showing = sol.classList.toggle('show');
+  btn.querySelector('svg').setAttribute('style', showing ? 'transform:rotate(180deg)' : '');
+  btn.childNodes[btn.childNodes.length - 1].textContent = showing ? ' Hide Solution' : ' Show Solution';
+}
+
+// ====== INIT ======
+window.addEventListener('load', () => {
+  updateAngle(45);
+  updateEqVisuals();
+
+  // Enable Tab 1 solve button on input
+  document.getElementById('t1AngleInput').addEventListener('input', function() {
+    document.getElementById('t1SolveBtn').disabled = !this.value || isNaN(Number(this.value));
+  });
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
